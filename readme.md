@@ -5,6 +5,6 @@ Step 1: Install dependencies
 ```
 
 ```shell
-    cd django_grpc_proto
+    cd booosta_proto
     py -m grpc_tools.protoc --proto_path=./proto --python_out=./py_grpc --pyi_out=./py_grpc --grpc_python_out=./py_grpc ./proto/user.proto
 ```
