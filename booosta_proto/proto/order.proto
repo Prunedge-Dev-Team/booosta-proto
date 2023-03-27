@@ -1,0 +1,61 @@
+syntax = "proto3";
+package order;
+import "google/protobuf/timestamp.proto";
+
+service OrderService {
+    rpc GetOrderById(GetOrderByIdRequest) returns (GetOrderByIdResponse) {}
+    rpc GetOrderItemById(GetOrderItemByIdRequest) returns (GetOrderItemByIdResponse) {}
+    rpc GetOrderItemsByProductId(GetOrderItemsByProductIdRequest) returns (GetOrderItemsByProductIdResponse) {}
+}
+
+message Order {
+    string customer_id = 1;
+    string payment_type = 2;
+    string payment_option = 3;
+    float amount_payment = 4;
+    float shipping_fee = 5;
+    float balance = 6;
+    float total_price = 7;
+    google.protobuf.Timestamp payment_date = 8;
+    google.protobuf.Timestamp balance_due_date = 9;
+    float discount = 10;
+    float grand_total = 11;
+    google.protobuf.Timestamp sales_date = 12;
+    string transaction_id = 13;
+}
+
+message OrderItem {
+    string product_id = 1;
+    string order_id = 2;
+    int64 quantity = 3;
+    float discount_selling_price = 4;
+    float product_cost_price = 5;
+    float selling_price = 6;
+    float total_price = 7;
+    string created_by_id = 8;
+}
+
+message GetOrderByIdRequest {
+    string id = 1;
+    string payment_type = 2;
+}
+
+message GetOrderItemByIdRequest {
+    string id = 1;
+}
+
+message GetOrderByIdResponse {
+    Order order = 1;
+}
+
+message GetOrderItemByIdResponse {
+    OrderItem order_item = 1;
+}
+
+message GetOrderItemsByProductIdRequest {
+    string product_id = 1;
+}
+
+message GetOrderItemsByProductIdResponse {
+    repeated OrderItem order_item = 1;
+}
