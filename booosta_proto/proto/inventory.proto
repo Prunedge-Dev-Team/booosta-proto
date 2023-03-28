@@ -1,0 +1,36 @@
+syntax = "proto3";
+package inventory;
+
+service InventoryService {
+    rpc GetProductInventoryById(GetProductInventoryByIdRequest) returns (GetProductInventoryByIdResponse) {}
+    rpc GetUnitTypeById(GetUnitTypeByIdRequest) returns (GetUnitTypeByIdResponse) {}
+}
+
+
+message ProductInventory {
+    string name = 1;
+    float cost_price = 2;
+    int64 current_quantity = 3;
+    int64 minimum_stock_quantity = 4;
+    string created_by_id = 5;
+}
+
+message UnitType {
+    string name = 1;
+}
+
+message GetProductInventoryByIdRequest {
+    string id = 1;
+}
+
+message GetUnitTypeByIdRequest {
+    string id = 1;
+}
+
+message GetProductInventoryByIdResponse {
+    ProductInventory product_inventory = 1;
+}
+
+message GetUnitTypeByIdResponse {
+    UnitType unit_type = 1;
+}
