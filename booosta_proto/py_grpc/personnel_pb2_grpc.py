@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import personnel_pb2 as personnel__pb2
+from booosta_proto.py_grpc import personnel_pb2 as personnel__pb2
 
 
 class PersonnelServiceStub(object):
