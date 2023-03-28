@@ -14,7 +14,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\nuser.proto\x12\x04user\x1a\x1bgoogle/protobuf/empty.proto\"Z\n\x04User\x12\x0f\n\x07user_id\x18\x01 \x01(\t\x12\x11\n\tfirstname\x18\x02 \x01(\t\x12\x10\n\x08lastname\x18\x03 \x01(\t\x12\r\n\x05image\x18\x04 \x01(\t\x12\r\n\x05phone\x18\x05 \x01(\t\"G\n\x08\x41uditLog\x12\x0f\n\x07user_id\x18\x01 \x01(\t\x12\x15\n\ractivity_type\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\" \n\x12GetUserByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"/\n\x13GetUserByIdResponse\x12\x18\n\x04user\x18\x01 \x01(\x0b\x32\n.user.User\"8\n\x13SaveAuditLogRequest\x12!\n\taudit_log\x18\x01 \x01(\x0b\x32\x0e.user.AuditLog2\x98\x01\n\x0bUserService\x12\x44\n\x0bGetUserById\x12\x18.user.GetUserByIdRequest\x1a\x19.user.GetUserByIdResponse\"\x00\x12\x43\n\x0cSaveAuditLog\x12\x19.user.SaveAuditLogRequest\x1a\x16.google.protobuf.Empty\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\nuser.proto\x12\x04user\x1a\x1bgoogle/protobuf/empty.proto\"U\n\x04User\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tfirstname\x18\x02 \x01(\t\x12\x10\n\x08lastname\x18\x03 \x01(\t\x12\r\n\x05image\x18\x04 \x01(\t\x12\r\n\x05phone\x18\x05 \x01(\t\"G\n\x08\x41uditLog\x12\x0f\n\x07user_id\x18\x01 \x01(\t\x12\x15\n\ractivity_type\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\" \n\x12GetUserByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"/\n\x13GetUserByIdResponse\x12\x18\n\x04user\x18\x01 \x01(\x0b\x32\n.user.User\"8\n\x13SaveAuditLogRequest\x12!\n\taudit_log\x18\x01 \x01(\x0b\x32\x0e.user.AuditLog2\x98\x01\n\x0bUserService\x12\x44\n\x0bGetUserById\x12\x18.user.GetUserByIdRequest\x1a\x19.user.GetUserByIdResponse\"\x00\x12\x43\n\x0cSaveAuditLog\x12\x19.user.SaveAuditLogRequest\x1a\x16.google.protobuf.Empty\"\x00\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'user_pb2', globals())
@@ -22,15 +22,15 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _USER._serialized_start=49
-  _USER._serialized_end=139
-  _AUDITLOG._serialized_start=141
-  _AUDITLOG._serialized_end=212
-  _GETUSERBYIDREQUEST._serialized_start=214
-  _GETUSERBYIDREQUEST._serialized_end=246
-  _GETUSERBYIDRESPONSE._serialized_start=248
-  _GETUSERBYIDRESPONSE._serialized_end=295
-  _SAVEAUDITLOGREQUEST._serialized_start=297
-  _SAVEAUDITLOGREQUEST._serialized_end=353
-  _USERSERVICE._serialized_start=356
-  _USERSERVICE._serialized_end=508
+  _USER._serialized_end=134
+  _AUDITLOG._serialized_start=136
+  _AUDITLOG._serialized_end=207
+  _GETUSERBYIDREQUEST._serialized_start=209
+  _GETUSERBYIDREQUEST._serialized_end=241
+  _GETUSERBYIDRESPONSE._serialized_start=243
+  _GETUSERBYIDRESPONSE._serialized_end=290
+  _SAVEAUDITLOGREQUEST._serialized_start=292
+  _SAVEAUDITLOGREQUEST._serialized_end=348
+  _USERSERVICE._serialized_start=351
+  _USERSERVICE._serialized_end=503
 # @@protoc_insertion_point(module_scope)

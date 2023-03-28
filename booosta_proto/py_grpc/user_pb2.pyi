@@ -34,15 +34,15 @@ class SaveAuditLogRequest(_message.Message):
     def __init__(self, audit_log: _Optional[_Union[AuditLog, _Mapping]] = ...) -> None: ...
 
 class User(_message.Message):
-    __slots__ = ["firstname", "image", "lastname", "phone", "user_id"]
+    __slots__ = ["firstname", "id", "image", "lastname", "phone"]
     FIRSTNAME_FIELD_NUMBER: _ClassVar[int]
+    ID_FIELD_NUMBER: _ClassVar[int]
     IMAGE_FIELD_NUMBER: _ClassVar[int]
     LASTNAME_FIELD_NUMBER: _ClassVar[int]
     PHONE_FIELD_NUMBER: _ClassVar[int]
-    USER_ID_FIELD_NUMBER: _ClassVar[int]
     firstname: str
+    id: str
     image: str
     lastname: str
     phone: str
-    user_id: str
-    def __init__(self, user_id: _Optional[str] = ..., firstname: _Optional[str] = ..., lastname: _Optional[str] = ..., image: _Optional[str] = ..., phone: _Optional[str] = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., firstname: _Optional[str] = ..., lastname: _Optional[str] = ..., image: _Optional[str] = ..., phone: _Optional[str] = ...) -> None: ...

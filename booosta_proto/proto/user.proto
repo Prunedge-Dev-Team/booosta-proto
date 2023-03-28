@@ -1,26 +1,35 @@
 syntax = "proto3";
-package user_proto;
+package user;
 import "google/protobuf/empty.proto";
 
 service UserService {
-  rpc GetUser (UserRetrieveRequest) returns (User) {};
-  rpc ListUsers (UserListRequest) returns (stream User) {};
-  rpc CreateUser (User) returns (User) {};
-  rpc UpdateUser (User) returns (User) {};
-  rpc DeleteUser (User) returns (google.protobuf.Empty) {};
+    rpc GetUserById(GetUserByIdRequest) returns (GetUserByIdResponse) {}
+    rpc SaveAuditLog(SaveAuditLogRequest) returns (google.protobuf.Empty) {}
 }
+
 
 message User {
-  string id = 1;
-  string email = 2;
-  string firstname = 3;
-  string lastname = 4;
-  string role = 7;
-  bool is_active = 8;
+    string id = 1;
+    string firstname = 2;
+    string lastname = 3;
+    string image = 4;
+    string phone = 5;
 }
 
-message UserRetrieveRequest {
-  string id = 1;
+message AuditLog {
+    string user_id = 1;
+    string activity_type = 2;
+    string description = 3;
 }
 
-message UserListRequest {}
+message GetUserByIdRequest {
+    string id = 1;
+}
+
+message GetUserByIdResponse {
+    User user = 1;
+}
+
+message SaveAuditLogRequest {
+    AuditLog audit_log = 1;
+}

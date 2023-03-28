@@ -1,0 +1,23 @@
+syntax = "proto3";
+package personnel;
+
+service PersonnelService {
+    rpc GetRetailerByUserId(GetRetailerByUserIdRequest) returns (GetRetailerByUserIdResponse) {}
+}
+
+message Retailer {
+    string id = 1;
+    string user_id = 2;
+    string business_name = 3;
+    string business_type = 4;
+    string category = 5;
+    string classification = 6;
+}
+
+message GetRetailerByUserIdRequest {
+    string id = 1;
+}
+
+message GetRetailerByUserIdResponse {
+    Retailer retailer = 1;
+}
