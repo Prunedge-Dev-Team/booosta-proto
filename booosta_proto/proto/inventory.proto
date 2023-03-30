@@ -4,6 +4,7 @@ package inventory;
 service InventoryService {
     rpc GetProductInventoryById(GetProductInventoryByIdRequest) returns (GetProductInventoryByIdResponse) {}
     rpc GetUnitTypeById(GetUnitTypeByIdRequest) returns (GetUnitTypeByIdResponse) {}
+    rpc GetProductInventoryByUserIDAndQuantity(GetProductInventoryByUserIDAndQuantityRequest) returns (GetProductInventoryByUserIDAndQuantityResponse) {}
 }
 
 
@@ -13,6 +14,13 @@ message ProductInventory {
     int64 current_quantity = 3;
     int64 minimum_stock_quantity = 4;
     string created_by_id = 5;
+    string image = 6;
+    int64 default_quantity = 7;
+    string unit_type_id = 8;
+    string category_id = 9;
+    string description = 10;
+    bool low_quantity = 11;
+    float selling_price = 12;
 }
 
 message UnitType {
@@ -33,4 +41,13 @@ message GetProductInventoryByIdResponse {
 
 message GetUnitTypeByIdResponse {
     UnitType unit_type = 1;
+}
+
+message GetProductInventoryByUserIDAndQuantityRequest {
+    string created_by_id = 1;
+    bool low_quantity = 2;
+}
+
+message GetProductInventoryByUserIDAndQuantityResponse {
+    repeated ProductInventory product_inventory = 1;
 }
