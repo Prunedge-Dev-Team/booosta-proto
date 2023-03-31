@@ -14,7 +14,9 @@ setup(
     author='Daniel Ale',
     author_email='danielale9291@gmail.com',
     packages=find_packages(),
-    install_requires=[],
+    install_requires=[
+        'django',
+    ],
     python_requires=">=3.10",
     zip_safe=False,
     classifiers=[
