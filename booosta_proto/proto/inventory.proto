@@ -16,8 +16,8 @@ message ProductInventory {
     string created_by_id = 5;
     string image = 6;
     int64 default_quantity = 7;
-    string unit_type_id = 8;
-    string category_id = 9;
+    string unit_type = 8;
+    string category = 9;
     string description = 10;
     bool low_quantity = 11;
     float selling_price = 12;

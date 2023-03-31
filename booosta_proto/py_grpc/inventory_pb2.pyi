@@ -44,8 +44,8 @@ class GetUnitTypeByIdResponse(_message.Message):
     def __init__(self, unit_type: _Optional[_Union[UnitType, _Mapping]] = ...) -> None: ...
 
 class ProductInventory(_message.Message):
-    __slots__ = ["category_id", "cost_price", "created_by_id", "current_quantity", "default_quantity", "description", "image", "low_quantity", "minimum_stock_quantity", "name", "selling_price", "unit_type_id"]
-    CATEGORY_ID_FIELD_NUMBER: _ClassVar[int]
+    __slots__ = ["category", "cost_price", "created_by_id", "current_quantity", "default_quantity", "description", "image", "low_quantity", "minimum_stock_quantity", "name", "selling_price", "unit_type"]
+    CATEGORY_FIELD_NUMBER: _ClassVar[int]
     COST_PRICE_FIELD_NUMBER: _ClassVar[int]
     CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
     CURRENT_QUANTITY_FIELD_NUMBER: _ClassVar[int]
@@ -56,8 +56,8 @@ class ProductInventory(_message.Message):
     MINIMUM_STOCK_QUANTITY_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     SELLING_PRICE_FIELD_NUMBER: _ClassVar[int]
-    UNIT_TYPE_ID_FIELD_NUMBER: _ClassVar[int]
-    category_id: str
+    UNIT_TYPE_FIELD_NUMBER: _ClassVar[int]
+    category: str
     cost_price: float
     created_by_id: str
     current_quantity: int
@@ -68,8 +68,8 @@ class ProductInventory(_message.Message):
     minimum_stock_quantity: int
     name: str
     selling_price: float
-    unit_type_id: str
-    def __init__(self, name: _Optional[str] = ..., cost_price: _Optional[float] = ..., current_quantity: _Optional[int] = ..., minimum_stock_quantity: _Optional[int] = ..., created_by_id: _Optional[str] = ..., image: _Optional[str] = ..., default_quantity: _Optional[int] = ..., unit_type_id: _Optional[str] = ..., category_id: _Optional[str] = ..., description: _Optional[str] = ..., low_quantity: bool = ..., selling_price: _Optional[float] = ...) -> None: ...
+    unit_type: str
+    def __init__(self, name: _Optional[str] = ..., cost_price: _Optional[float] = ..., current_quantity: _Optional[int] = ..., minimum_stock_quantity: _Optional[int] = ..., created_by_id: _Optional[str] = ..., image: _Optional[str] = ..., default_quantity: _Optional[int] = ..., unit_type: _Optional[str] = ..., category: _Optional[str] = ..., description: _Optional[str] = ..., low_quantity: bool = ..., selling_price: _Optional[float] = ...) -> None: ...
 
 class UnitType(_message.Message):
     __slots__ = ["name"]
