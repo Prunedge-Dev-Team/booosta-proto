@@ -4,7 +4,8 @@ package inventory;
 service InventoryService {
     rpc GetProductInventoryById(GetProductInventoryByIdRequest) returns (GetProductInventoryByIdResponse) {}
     rpc GetUnitTypeById(GetUnitTypeByIdRequest) returns (GetUnitTypeByIdResponse) {}
-    rpc GetProductInventoryByUserIDAndQuantity(GetProductInventoryByUserIDAndQuantityRequest) returns (GetProductInventoryByUserIDAndQuantityResponse) {}
+    rpc GetProductInventoryByUserIDAndQuantity(GetProductInventoryByUserIDAndQuantityRequest) returns (ProductInventoryListResponse) {}
+    rpc GetProductInventoryByUserId(GetProductInventoryByUserIdRequest) returns (ProductInventoryListResponse) {}
 }
 
 
@@ -48,6 +49,10 @@ message GetProductInventoryByUserIDAndQuantityRequest {
     bool low_quantity = 2;
 }
 
-message GetProductInventoryByUserIDAndQuantityResponse {
+message ProductInventoryListResponse {
     repeated ProductInventory product_inventory = 1;
+}
+
+message GetProductInventoryByUserIdRequest {
+    string created_by_id = 1;
 }

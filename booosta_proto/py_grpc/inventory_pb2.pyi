@@ -25,11 +25,11 @@ class GetProductInventoryByUserIDAndQuantityRequest(_message.Message):
     low_quantity: bool
     def __init__(self, created_by_id: _Optional[str] = ..., low_quantity: bool = ...) -> None: ...
 
-class GetProductInventoryByUserIDAndQuantityResponse(_message.Message):
-    __slots__ = ["product_inventory"]
-    PRODUCT_INVENTORY_FIELD_NUMBER: _ClassVar[int]
-    product_inventory: _containers.RepeatedCompositeFieldContainer[ProductInventory]
-    def __init__(self, product_inventory: _Optional[_Iterable[_Union[ProductInventory, _Mapping]]] = ...) -> None: ...
+class GetProductInventoryByUserIdRequest(_message.Message):
+    __slots__ = ["created_by_id"]
+    CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
+    created_by_id: str
+    def __init__(self, created_by_id: _Optional[str] = ...) -> None: ...
 
 class GetUnitTypeByIdRequest(_message.Message):
     __slots__ = ["id"]
@@ -70,6 +70,12 @@ class ProductInventory(_message.Message):
     selling_price: float
     unit_type: str
     def __init__(self, name: _Optional[str] = ..., cost_price: _Optional[float] = ..., current_quantity: _Optional[int] = ..., minimum_stock_quantity: _Optional[int] = ..., created_by_id: _Optional[str] = ..., image: _Optional[str] = ..., default_quantity: _Optional[int] = ..., unit_type: _Optional[str] = ..., category: _Optional[str] = ..., description: _Optional[str] = ..., low_quantity: bool = ..., selling_price: _Optional[float] = ...) -> None: ...
+
+class ProductInventoryListResponse(_message.Message):
+    __slots__ = ["product_inventory"]
+    PRODUCT_INVENTORY_FIELD_NUMBER: _ClassVar[int]
+    product_inventory: _containers.RepeatedCompositeFieldContainer[ProductInventory]
+    def __init__(self, product_inventory: _Optional[_Iterable[_Union[ProductInventory, _Mapping]]] = ...) -> None: ...
 
 class UnitType(_message.Message):
     __slots__ = ["name"]
