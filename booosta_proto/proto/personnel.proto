@@ -3,6 +3,7 @@ package personnel;
 
 service PersonnelService {
     rpc GetRetailerByUserId(GetRetailerByUserIdRequest) returns (GetRetailerByUserIdResponse) {}
+    
 }
 
 message Retailer {

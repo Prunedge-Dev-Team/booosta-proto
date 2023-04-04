@@ -6,6 +6,32 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
+class Customer(_message.Message):
+    __slots__ = ["customer_email", "customer_id", "customer_name", "customer_phone", "description"]
+    CUSTOMER_EMAIL_FIELD_NUMBER: _ClassVar[int]
+    CUSTOMER_ID_FIELD_NUMBER: _ClassVar[int]
+    CUSTOMER_NAME_FIELD_NUMBER: _ClassVar[int]
+    CUSTOMER_PHONE_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    customer_email: str
+    customer_id: str
+    customer_name: str
+    customer_phone: str
+    description: str
+    def __init__(self, customer_id: _Optional[str] = ..., customer_name: _Optional[str] = ..., customer_phone: _Optional[str] = ..., customer_email: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
+
+class GetCustomerRequest(_message.Message):
+    __slots__ = ["id"]
+    ID_FIELD_NUMBER: _ClassVar[int]
+    id: str
+    def __init__(self, id: _Optional[str] = ...) -> None: ...
+
+class GetCustomerResponse(_message.Message):
+    __slots__ = ["customer"]
+    CUSTOMER_FIELD_NUMBER: _ClassVar[int]
+    customer: Customer
+    def __init__(self, customer: _Optional[_Union[Customer, _Mapping]] = ...) -> None: ...
+
 class GetOrderByIdRequest(_message.Message):
     __slots__ = ["id", "payment_type"]
     ID_FIELD_NUMBER: _ClassVar[int]
