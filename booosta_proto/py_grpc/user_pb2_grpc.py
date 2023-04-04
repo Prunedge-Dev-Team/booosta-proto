@@ -3,7 +3,7 @@
 import grpc
 
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
-from booosta_proto.py_grpc import user_pb2 as user__pb2
+import user_pb2 as user__pb2
 
 
 class UserServiceStub(object):
@@ -25,6 +25,11 @@ class UserServiceStub(object):
                 request_serializer=user__pb2.SaveAuditLogRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
+        self.GenerateEnumerationCode = channel.unary_unary(
+                '/user.UserService/GenerateEnumerationCode',
+                request_serializer=user__pb2.GenerateEnumerationCodeRequest.SerializeToString,
+                response_deserializer=user__pb2.GenerateEnumerationCodeResponse.FromString,
+                )
 
 
 class UserServiceServicer(object):
@@ -42,6 +47,12 @@ class UserServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GenerateEnumerationCode(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_UserServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -54,6 +65,11 @@ def add_UserServiceServicer_to_server(servicer, server):
                     servicer.SaveAuditLog,
                     request_deserializer=user__pb2.SaveAuditLogRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
+            'GenerateEnumerationCode': grpc.unary_unary_rpc_method_handler(
+                    servicer.GenerateEnumerationCode,
+                    request_deserializer=user__pb2.GenerateEnumerationCodeRequest.FromString,
+                    response_serializer=user__pb2.GenerateEnumerationCodeResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -96,5 +112,22 @@ class UserService(object):
         return grpc.experimental.unary_unary(request, target, '/user.UserService/SaveAuditLog',
             user__pb2.SaveAuditLogRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GenerateEnumerationCode(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/user.UserService/GenerateEnumerationCode',
+            user__pb2.GenerateEnumerationCodeRequest.SerializeToString,
+            user__pb2.GenerateEnumerationCodeResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

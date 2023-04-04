@@ -15,6 +15,22 @@ class AuditLog(_message.Message):
     user_id: str
     def __init__(self, user_id: _Optional[str] = ..., activity_type: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
 
+class GenerateEnumerationCodeRequest(_message.Message):
+    __slots__ = ["enumeration_type", "length", "reg_code"]
+    ENUMERATION_TYPE_FIELD_NUMBER: _ClassVar[int]
+    LENGTH_FIELD_NUMBER: _ClassVar[int]
+    REG_CODE_FIELD_NUMBER: _ClassVar[int]
+    enumeration_type: str
+    length: int
+    reg_code: str
+    def __init__(self, reg_code: _Optional[str] = ..., enumeration_type: _Optional[str] = ..., length: _Optional[int] = ...) -> None: ...
+
+class GenerateEnumerationCodeResponse(_message.Message):
+    __slots__ = ["code"]
+    CODE_FIELD_NUMBER: _ClassVar[int]
+    code: str
+    def __init__(self, code: _Optional[str] = ...) -> None: ...
+
 class GetUserByIdRequest(_message.Message):
     __slots__ = ["id"]
     ID_FIELD_NUMBER: _ClassVar[int]
