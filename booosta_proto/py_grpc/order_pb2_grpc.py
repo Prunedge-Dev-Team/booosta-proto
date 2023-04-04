@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from booosta_proto.py_grpc import order_pb2 as order__pb2
+import order_pb2 as order__pb2
 
 
 class OrderServiceStub(object):
@@ -29,6 +29,11 @@ class OrderServiceStub(object):
                 request_serializer=order__pb2.GetOrderItemsByProductIdRequest.SerializeToString,
                 response_deserializer=order__pb2.GetOrderItemsByProductIdResponse.FromString,
                 )
+        self.GetCustomer = channel.unary_unary(
+                '/order.OrderService/GetCustomer',
+                request_serializer=order__pb2.GetCustomerRequest.SerializeToString,
+                response_deserializer=order__pb2.GetCustomerResponse.FromString,
+                )
 
 
 class OrderServiceServicer(object):
@@ -52,6 +57,12 @@ class OrderServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetCustomer(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_OrderServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -69,6 +80,11 @@ def add_OrderServiceServicer_to_server(servicer, server):
                     servicer.GetOrderItemsByProductId,
                     request_deserializer=order__pb2.GetOrderItemsByProductIdRequest.FromString,
                     response_serializer=order__pb2.GetOrderItemsByProductIdResponse.SerializeToString,
+            ),
+            'GetCustomer': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetCustomer,
+                    request_deserializer=order__pb2.GetCustomerRequest.FromString,
+                    response_serializer=order__pb2.GetCustomerResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -128,5 +144,22 @@ class OrderService(object):
         return grpc.experimental.unary_unary(request, target, '/order.OrderService/GetOrderItemsByProductId',
             order__pb2.GetOrderItemsByProductIdRequest.SerializeToString,
             order__pb2.GetOrderItemsByProductIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetCustomer(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/order.OrderService/GetCustomer',
+            order__pb2.GetCustomerRequest.SerializeToString,
+            order__pb2.GetCustomerResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
