@@ -44,8 +44,8 @@ class GetRetailerProductListRequest(_message.Message):
 class GetRetailerProductListResponse(_message.Message):
     __slots__ = ["product_inventory"]
     PRODUCT_INVENTORY_FIELD_NUMBER: _ClassVar[int]
-    product_inventory: _containers.RepeatedCompositeFieldContainer[ProductInventory]
-    def __init__(self, product_inventory: _Optional[_Iterable[_Union[ProductInventory, _Mapping]]] = ...) -> None: ...
+    product_inventory: _containers.RepeatedCompositeFieldContainer[ProductAdminList]
+    def __init__(self, product_inventory: _Optional[_Iterable[_Union[ProductAdminList, _Mapping]]] = ...) -> None: ...
 
 class GetUnitTypeByIdRequest(_message.Message):
     __slots__ = ["id"]
@@ -58,6 +58,24 @@ class GetUnitTypeByIdResponse(_message.Message):
     UNIT_TYPE_FIELD_NUMBER: _ClassVar[int]
     unit_type: UnitType
     def __init__(self, unit_type: _Optional[_Union[UnitType, _Mapping]] = ...) -> None: ...
+
+class ProductAdminList(_message.Message):
+    __slots__ = ["business_name", "cost_price", "selling_price", "sold", "status", "stock_quantity", "stock_value"]
+    BUSINESS_NAME_FIELD_NUMBER: _ClassVar[int]
+    COST_PRICE_FIELD_NUMBER: _ClassVar[int]
+    SELLING_PRICE_FIELD_NUMBER: _ClassVar[int]
+    SOLD_FIELD_NUMBER: _ClassVar[int]
+    STATUS_FIELD_NUMBER: _ClassVar[int]
+    STOCK_QUANTITY_FIELD_NUMBER: _ClassVar[int]
+    STOCK_VALUE_FIELD_NUMBER: _ClassVar[int]
+    business_name: str
+    cost_price: int
+    selling_price: float
+    sold: str
+    status: str
+    stock_quantity: int
+    stock_value: int
+    def __init__(self, stock_quantity: _Optional[int] = ..., stock_value: _Optional[int] = ..., sold: _Optional[str] = ..., status: _Optional[str] = ..., selling_price: _Optional[float] = ..., business_name: _Optional[str] = ..., cost_price: _Optional[int] = ...) -> None: ...
 
 class ProductInventory(_message.Message):
     __slots__ = ["category", "cost_price", "created_by_id", "current_quantity", "default_quantity", "description", "image", "low_quantity", "minimum_stock_quantity", "name", "selling_price", "unit_type"]
