@@ -31,6 +31,22 @@ class GetProductInventoryByUserIDAndQuantityResponse(_message.Message):
     product_inventory: _containers.RepeatedCompositeFieldContainer[ProductInventory]
     def __init__(self, product_inventory: _Optional[_Iterable[_Union[ProductInventory, _Mapping]]] = ...) -> None: ...
 
+class GetRetailerProductListRequest(_message.Message):
+    __slots__ = ["created_by_id", "ordering", "status"]
+    CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
+    ORDERING_FIELD_NUMBER: _ClassVar[int]
+    STATUS_FIELD_NUMBER: _ClassVar[int]
+    created_by_id: str
+    ordering: str
+    status: str
+    def __init__(self, created_by_id: _Optional[str] = ..., status: _Optional[str] = ..., ordering: _Optional[str] = ...) -> None: ...
+
+class GetRetailerProductListResponse(_message.Message):
+    __slots__ = ["product_inventory"]
+    PRODUCT_INVENTORY_FIELD_NUMBER: _ClassVar[int]
+    product_inventory: _containers.RepeatedCompositeFieldContainer[ProductInventory]
+    def __init__(self, product_inventory: _Optional[_Iterable[_Union[ProductInventory, _Mapping]]] = ...) -> None: ...
+
 class GetUnitTypeByIdRequest(_message.Message):
     __slots__ = ["id"]
     ID_FIELD_NUMBER: _ClassVar[int]
