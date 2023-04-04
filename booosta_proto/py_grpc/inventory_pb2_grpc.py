@@ -27,7 +27,12 @@ class InventoryServiceStub(object):
         self.GetProductInventoryByUserIDAndQuantity = channel.unary_unary(
                 '/inventory.InventoryService/GetProductInventoryByUserIDAndQuantity',
                 request_serializer=inventory__pb2.GetProductInventoryByUserIDAndQuantityRequest.SerializeToString,
-                response_deserializer=inventory__pb2.GetProductInventoryByUserIDAndQuantityResponse.FromString,
+                response_deserializer=inventory__pb2.ProductInventoryListResponse.FromString,
+                )
+        self.GetProductInventoryByUserId = channel.unary_unary(
+                '/inventory.InventoryService/GetProductInventoryByUserId',
+                request_serializer=inventory__pb2.GetProductInventoryByUserIdRequest.SerializeToString,
+                response_deserializer=inventory__pb2.ProductInventoryListResponse.FromString,
                 )
         self.GetRetailerProductList = channel.unary_unary(
                 '/inventory.InventoryService/GetRetailerProductList',
@@ -57,6 +62,12 @@ class InventoryServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetProductInventoryByUserId(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetRetailerProductList(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -79,7 +90,12 @@ def add_InventoryServiceServicer_to_server(servicer, server):
             'GetProductInventoryByUserIDAndQuantity': grpc.unary_unary_rpc_method_handler(
                     servicer.GetProductInventoryByUserIDAndQuantity,
                     request_deserializer=inventory__pb2.GetProductInventoryByUserIDAndQuantityRequest.FromString,
-                    response_serializer=inventory__pb2.GetProductInventoryByUserIDAndQuantityResponse.SerializeToString,
+                    response_serializer=inventory__pb2.ProductInventoryListResponse.SerializeToString,
+            ),
+            'GetProductInventoryByUserId': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetProductInventoryByUserId,
+                    request_deserializer=inventory__pb2.GetProductInventoryByUserIdRequest.FromString,
+                    response_serializer=inventory__pb2.ProductInventoryListResponse.SerializeToString,
             ),
             'GetRetailerProductList': grpc.unary_unary_rpc_method_handler(
                     servicer.GetRetailerProductList,
@@ -143,7 +159,24 @@ class InventoryService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/inventory.InventoryService/GetProductInventoryByUserIDAndQuantity',
             inventory__pb2.GetProductInventoryByUserIDAndQuantityRequest.SerializeToString,
-            inventory__pb2.GetProductInventoryByUserIDAndQuantityResponse.FromString,
+            inventory__pb2.ProductInventoryListResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetProductInventoryByUserId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/inventory.InventoryService/GetProductInventoryByUserId',
+            inventory__pb2.GetProductInventoryByUserIdRequest.SerializeToString,
+            inventory__pb2.ProductInventoryListResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
