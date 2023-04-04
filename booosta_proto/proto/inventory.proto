@@ -6,6 +6,7 @@ service InventoryService {
     rpc GetUnitTypeById(GetUnitTypeByIdRequest) returns (GetUnitTypeByIdResponse) {}
     rpc GetProductInventoryByUserIDAndQuantity(GetProductInventoryByUserIDAndQuantityRequest) returns (ProductInventoryListResponse) {}
     rpc GetProductInventoryByUserId(GetProductInventoryByUserIdRequest) returns (ProductInventoryListResponse) {}
+    rpc GetRetailerProductList(GetRetailerProductListRequest) returns (GetRetailerProductListResponse) {}
 }
 
 
@@ -55,4 +56,13 @@ message ProductInventoryListResponse {
 
 message GetProductInventoryByUserIdRequest {
     string created_by_id = 1;
+}
+message GetRetailerProductListRequest { 
+    string created_by_id = 1; 
+    string status = 2; 
+    string ordering = 3; 
+} 
+
+message GetRetailerProductListResponse { 
+    repeated ProductInventory product_inventory = 1; 
 }

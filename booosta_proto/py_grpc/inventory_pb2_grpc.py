@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import inventory_pb2 as inventory__pb2
+from booosta_proto.py_grpc import inventory_pb2 as inventory__pb2
 
 
 class InventoryServiceStub(object):
@@ -34,6 +34,11 @@ class InventoryServiceStub(object):
                 request_serializer=inventory__pb2.GetProductInventoryByUserIdRequest.SerializeToString,
                 response_deserializer=inventory__pb2.ProductInventoryListResponse.FromString,
                 )
+        self.GetRetailerProductList = channel.unary_unary(
+                '/inventory.InventoryService/GetRetailerProductList',
+                request_serializer=inventory__pb2.GetRetailerProductListRequest.SerializeToString,
+                response_deserializer=inventory__pb2.GetRetailerProductListResponse.FromString,
+                )
 
 
 class InventoryServiceServicer(object):
@@ -63,6 +68,12 @@ class InventoryServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetRetailerProductList(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_InventoryServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -85,6 +96,11 @@ def add_InventoryServiceServicer_to_server(servicer, server):
                     servicer.GetProductInventoryByUserId,
                     request_deserializer=inventory__pb2.GetProductInventoryByUserIdRequest.FromString,
                     response_serializer=inventory__pb2.ProductInventoryListResponse.SerializeToString,
+            ),
+            'GetRetailerProductList': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetRetailerProductList,
+                    request_deserializer=inventory__pb2.GetRetailerProductListRequest.FromString,
+                    response_serializer=inventory__pb2.GetRetailerProductListResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -161,5 +177,22 @@ class InventoryService(object):
         return grpc.experimental.unary_unary(request, target, '/inventory.InventoryService/GetProductInventoryByUserId',
             inventory__pb2.GetProductInventoryByUserIdRequest.SerializeToString,
             inventory__pb2.ProductInventoryListResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetRetailerProductList(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/inventory.InventoryService/GetRetailerProductList',
+            inventory__pb2.GetRetailerProductListRequest.SerializeToString,
+            inventory__pb2.GetRetailerProductListResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
