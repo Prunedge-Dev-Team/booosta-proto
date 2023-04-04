@@ -3,7 +3,8 @@ package personnel;
 
 service PersonnelService {
     rpc GetRetailerByUserId(GetRetailerByUserIdRequest) returns (GetRetailerByUserIdResponse) {}
-    
+    rpc GetAgentByUserId(GetAgentByUserIdRequest) returns (GetAgentByUserIdResponse) {}
+    rpc GetAggregatorByUserId(GetAggregatorByUserIdRequest) returns (GetAggregatorByUserIdResponse) {}
 }
 
 message Retailer {
@@ -21,4 +22,37 @@ message GetRetailerByUserIdRequest {
 
 message GetRetailerByUserIdResponse {
     Retailer retailer = 1;
+}
+
+message Agent {
+    string id = 1;
+    string user_id = 2;
+    string business_information = 3;
+}
+
+message GetAgentByUserIdRequest{
+    string id = 1;
+}
+
+message GetAgentByUserIdResponse{
+    Agent agent = 1;
+}
+
+message Aggregator{
+    string id = 1;
+    string user_id = 2;
+    string business_information = 3;
+    string company_type = 4;
+    string company_size = 5;
+    string estimated_customer_base = 6;
+    string aggregator_code = 7;
+    string contact_name = 8;
+}
+
+message GetAggregatorByUserIdRequest{
+    string id = 1;   
+}
+
+message GetAggregatorByUserIdResponse{
+    Aggregator aggregator = 1;
 }
