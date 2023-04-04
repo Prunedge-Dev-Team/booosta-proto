@@ -5,6 +5,7 @@ import "google/protobuf/empty.proto";
 service UserService {
     rpc GetUserById(GetUserByIdRequest) returns (GetUserByIdResponse) {}
     rpc SaveAuditLog(SaveAuditLogRequest) returns (google.protobuf.Empty) {}
+    rpc GenerateEnumerationCode(GenerateEnumerationCodeRequest) returns (GenerateEnumerationCodeResponse) {}
 }
 
 
@@ -32,4 +33,14 @@ message GetUserByIdResponse {
 
 message SaveAuditLogRequest {
     AuditLog audit_log = 1;
+}
+
+message GenerateEnumerationCodeRequest {
+    string reg_code = 1;
+    string enumeration_type = 2;
+    int64 length = 3;
+}
+
+message GenerateEnumerationCodeResponse {
+    string code = 1;
 }
