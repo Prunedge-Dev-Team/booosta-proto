@@ -9,6 +9,8 @@ service OrderService {
     rpc GetCustomerById(GetCustomerByIdRequest) returns (GetCustomerByIdResponse) {}
     rpc GetOrderItemQuantityByProductId(GetOrderItemQuantityByProductIdRequest) returns (GetOrderItemQuantityByProductIdResponse) {}
     rpc GetOrderItemsByCreatedById(GetOrderItemsByCreatedByIdRequest) returns (OrderItemsListResponse) {}
+    rpc GetOrderByCreatedByIdAndPaymentType(GetOrderByCreatedByIdAndPaymentTypeRequest) returns (GetOrderByCreatedByIdAndPaymentTypeResponse) {}
+    rpc GetOrderItemsByProductIdAndCreatedById(GetOrderItemsByProductIdAndCreatedByIdRequest) returns (OrderItemsListResponse) {}
 }
 
 
@@ -26,6 +28,7 @@ message Order {
     float grand_total = 11;
     google.protobuf.Timestamp sales_date = 12;
     string transaction_id = 13;
+    string created_by_id = 14;
 }
 
 message OrderItem {
@@ -44,6 +47,11 @@ message GetOrderByIdRequest {
     string payment_type = 2;
 }
 
+message GetOrderByCreatedByIdAndPaymentTypeRequest {
+    string created_by_id = 1;
+    string payment_type = 2;
+}
+
 message GetOrderItemByIdRequest {
     string id = 1;
 }
@@ -52,12 +60,21 @@ message GetOrderByIdResponse {
     Order order = 1;
 }
 
+message GetOrderByCreatedByIdAndPaymentTypeResponse {
+    repeated Order order = 1;
+}
+
 message GetOrderItemByIdResponse {
     OrderItem order_item = 1;
 }
 
 message GetOrderItemsByProductIdRequest {
     string product_id = 1;
+}
+
+message GetOrderItemsByProductIdAndCreatedByIdRequest {
+    string created_by_id = 1;
+    string product_id = 2;
 }
 
 message GetOrderItemsByCreatedByIdRequest {
