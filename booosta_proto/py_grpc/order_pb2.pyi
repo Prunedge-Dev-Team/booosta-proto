@@ -68,17 +68,17 @@ class GetOrderItemQuantityByProductIdResponse(_message.Message):
     quantity: int
     def __init__(self, quantity: _Optional[int] = ...) -> None: ...
 
+class GetOrderItemsByCreatedByIdRequest(_message.Message):
+    __slots__ = ["created_by_id"]
+    CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
+    created_by_id: str
+    def __init__(self, created_by_id: _Optional[str] = ...) -> None: ...
+
 class GetOrderItemsByProductIdRequest(_message.Message):
     __slots__ = ["product_id"]
     PRODUCT_ID_FIELD_NUMBER: _ClassVar[int]
     product_id: str
     def __init__(self, product_id: _Optional[str] = ...) -> None: ...
-
-class GetOrderItemsByProductIdResponse(_message.Message):
-    __slots__ = ["order_item"]
-    ORDER_ITEM_FIELD_NUMBER: _ClassVar[int]
-    order_item: _containers.RepeatedCompositeFieldContainer[OrderItem]
-    def __init__(self, order_item: _Optional[_Iterable[_Union[OrderItem, _Mapping]]] = ...) -> None: ...
 
 class Order(_message.Message):
     __slots__ = ["amount_payment", "balance", "balance_due_date", "customer_id", "discount", "grand_total", "payment_date", "payment_option", "payment_type", "sales_date", "shipping_fee", "total_price", "transaction_id"]
@@ -129,3 +129,9 @@ class OrderItem(_message.Message):
     selling_price: float
     total_price: float
     def __init__(self, product_id: _Optional[str] = ..., order_id: _Optional[str] = ..., quantity: _Optional[int] = ..., discount_selling_price: _Optional[float] = ..., product_cost_price: _Optional[float] = ..., selling_price: _Optional[float] = ..., total_price: _Optional[float] = ..., created_by_id: _Optional[str] = ...) -> None: ...
+
+class OrderItemsListResponse(_message.Message):
+    __slots__ = ["order_item"]
+    ORDER_ITEM_FIELD_NUMBER: _ClassVar[int]
+    order_item: _containers.RepeatedCompositeFieldContainer[OrderItem]
+    def __init__(self, order_item: _Optional[_Iterable[_Union[OrderItem, _Mapping]]] = ...) -> None: ...
