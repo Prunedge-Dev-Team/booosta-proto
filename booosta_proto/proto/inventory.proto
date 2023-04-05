@@ -1,5 +1,6 @@
 syntax = "proto3";
 package inventory;
+import "google/protobuf/timestamp.proto";
 
 service InventoryService {
     rpc GetProductInventoryById(GetProductInventoryByIdRequest) returns (GetProductInventoryByIdResponse) {}
@@ -28,11 +29,17 @@ message ProductInventory {
 message ProductAdminList { 
     int64 stock_quantity = 1; 
     int64 stock_value = 2; 
-    string sold = 3; 
+    int64 sold = 3; 
     string status = 4; 
     float selling_price = 5; 
     string business_name = 6; 
-    int64 cost_price = 7; 
+    float cost_price = 7; 
+    string id = 8; 
+    string description = 9; 
+    int64 minimum_stock_quantity = 10; 
+    int64 default_quantity = 11; 
+    string name = 12; 
+    google.protobuf.Timestamp created_at = 13; 
 }
 
 message UnitType {

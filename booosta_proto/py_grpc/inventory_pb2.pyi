@@ -1,3 +1,4 @@
+from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
@@ -60,22 +61,34 @@ class GetUnitTypeByIdResponse(_message.Message):
     def __init__(self, unit_type: _Optional[_Union[UnitType, _Mapping]] = ...) -> None: ...
 
 class ProductAdminList(_message.Message):
-    __slots__ = ["business_name", "cost_price", "selling_price", "sold", "status", "stock_quantity", "stock_value"]
+    __slots__ = ["business_name", "cost_price", "created_at", "default_quantity", "description", "id", "minimum_stock_quantity", "name", "selling_price", "sold", "status", "stock_quantity", "stock_value"]
     BUSINESS_NAME_FIELD_NUMBER: _ClassVar[int]
     COST_PRICE_FIELD_NUMBER: _ClassVar[int]
+    CREATED_AT_FIELD_NUMBER: _ClassVar[int]
+    DEFAULT_QUANTITY_FIELD_NUMBER: _ClassVar[int]
+    DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    ID_FIELD_NUMBER: _ClassVar[int]
+    MINIMUM_STOCK_QUANTITY_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
     SELLING_PRICE_FIELD_NUMBER: _ClassVar[int]
     SOLD_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
     STOCK_QUANTITY_FIELD_NUMBER: _ClassVar[int]
     STOCK_VALUE_FIELD_NUMBER: _ClassVar[int]
     business_name: str
-    cost_price: int
+    cost_price: float
+    created_at: _timestamp_pb2.Timestamp
+    default_quantity: int
+    description: str
+    id: str
+    minimum_stock_quantity: int
+    name: str
     selling_price: float
-    sold: str
+    sold: int
     status: str
     stock_quantity: int
     stock_value: int
-    def __init__(self, stock_quantity: _Optional[int] = ..., stock_value: _Optional[int] = ..., sold: _Optional[str] = ..., status: _Optional[str] = ..., selling_price: _Optional[float] = ..., business_name: _Optional[str] = ..., cost_price: _Optional[int] = ...) -> None: ...
+    def __init__(self, stock_quantity: _Optional[int] = ..., stock_value: _Optional[int] = ..., sold: _Optional[int] = ..., status: _Optional[str] = ..., selling_price: _Optional[float] = ..., business_name: _Optional[str] = ..., cost_price: _Optional[float] = ..., id: _Optional[str] = ..., description: _Optional[str] = ..., minimum_stock_quantity: _Optional[int] = ..., default_quantity: _Optional[int] = ..., name: _Optional[str] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class ProductInventory(_message.Message):
     __slots__ = ["category", "cost_price", "created_by_id", "current_quantity", "default_quantity", "description", "image", "low_quantity", "minimum_stock_quantity", "name", "selling_price", "unit_type"]
