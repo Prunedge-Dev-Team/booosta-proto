@@ -5,9 +5,10 @@ import "google/protobuf/timestamp.proto";
 service OrderService {
     rpc GetOrderById(GetOrderByIdRequest) returns (GetOrderByIdResponse) {}
     rpc GetOrderItemById(GetOrderItemByIdRequest) returns (GetOrderItemByIdResponse) {}
-    rpc GetOrderItemsByProductId(GetOrderItemsByProductIdRequest) returns (GetOrderItemsByProductIdResponse) {}
+    rpc GetOrderItemsByProductId(GetOrderItemsByProductIdRequest) returns (OrderItemsListResponse) {}
     rpc GetCustomerById(GetCustomerByIdRequest) returns (GetCustomerByIdResponse) {}
     rpc GetOrderItemQuantityByProductId(GetOrderItemQuantityByProductIdRequest) returns (GetOrderItemQuantityByProductIdResponse) {}
+    rpc GetOrderItemsByCreatedById(GetOrderItemsByCreatedByIdRequest) returns (OrderItemsListResponse) {}
 }
 
 
@@ -59,7 +60,11 @@ message GetOrderItemsByProductIdRequest {
     string product_id = 1;
 }
 
-message GetOrderItemsByProductIdResponse {
+message GetOrderItemsByCreatedByIdRequest {
+    string created_by_id = 1;
+}
+
+message OrderItemsListResponse {
     repeated OrderItem order_item = 1;
 }
 
