@@ -7,26 +7,24 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class Customer(_message.Message):
-    __slots__ = ["customer_email", "customer_id", "customer_name", "customer_phone", "description"]
+    __slots__ = ["customer_email", "customer_name", "customer_phone", "description"]
     CUSTOMER_EMAIL_FIELD_NUMBER: _ClassVar[int]
-    CUSTOMER_ID_FIELD_NUMBER: _ClassVar[int]
     CUSTOMER_NAME_FIELD_NUMBER: _ClassVar[int]
     CUSTOMER_PHONE_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
     customer_email: str
-    customer_id: str
     customer_name: str
     customer_phone: str
     description: str
-    def __init__(self, customer_id: _Optional[str] = ..., customer_name: _Optional[str] = ..., customer_phone: _Optional[str] = ..., customer_email: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
+    def __init__(self, customer_name: _Optional[str] = ..., customer_phone: _Optional[str] = ..., customer_email: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
 
-class GetCustomerRequest(_message.Message):
+class GetCustomerByIdRequest(_message.Message):
     __slots__ = ["id"]
     ID_FIELD_NUMBER: _ClassVar[int]
     id: str
     def __init__(self, id: _Optional[str] = ...) -> None: ...
 
-class GetCustomerResponse(_message.Message):
+class GetCustomerByIdResponse(_message.Message):
     __slots__ = ["customer"]
     CUSTOMER_FIELD_NUMBER: _ClassVar[int]
     customer: Customer
@@ -69,6 +67,18 @@ class GetOrderItemsByProductIdResponse(_message.Message):
     ORDER_ITEM_FIELD_NUMBER: _ClassVar[int]
     order_item: _containers.RepeatedCompositeFieldContainer[OrderItem]
     def __init__(self, order_item: _Optional[_Iterable[_Union[OrderItem, _Mapping]]] = ...) -> None: ...
+
+class GetOrderQuantityByProductIdRequest(_message.Message):
+    __slots__ = ["product_id"]
+    PRODUCT_ID_FIELD_NUMBER: _ClassVar[int]
+    product_id: str
+    def __init__(self, product_id: _Optional[str] = ...) -> None: ...
+
+class GetOrderQuantityByProductIdResponse(_message.Message):
+    __slots__ = ["quantity"]
+    QUANTITY_FIELD_NUMBER: _ClassVar[int]
+    quantity: int
+    def __init__(self, quantity: _Optional[int] = ...) -> None: ...
 
 class Order(_message.Message):
     __slots__ = ["amount_payment", "balance", "balance_due_date", "customer_id", "discount", "grand_total", "payment_date", "payment_option", "payment_type", "sales_date", "shipping_fee", "total_price", "transaction_id"]
