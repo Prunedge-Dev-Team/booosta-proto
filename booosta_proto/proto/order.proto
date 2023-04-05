@@ -6,7 +6,10 @@ service OrderService {
     rpc GetOrderById(GetOrderByIdRequest) returns (GetOrderByIdResponse) {}
     rpc GetOrderItemById(GetOrderItemByIdRequest) returns (GetOrderItemByIdResponse) {}
     rpc GetOrderItemsByProductId(GetOrderItemsByProductIdRequest) returns (GetOrderItemsByProductIdResponse) {}
+    rpc GetCustomerById(GetCustomerByIdRequest) returns (GetCustomerByIdResponse) {}
+    rpc GetOrderQuantityByProductId(GetOrderQuantityByProductIdRequest) returns (GetOrderQuantityByProductIdResponse) {}
 }
+
 
 message Order {
     string customer_id = 1;
@@ -58,4 +61,27 @@ message GetOrderItemsByProductIdRequest {
 
 message GetOrderItemsByProductIdResponse {
     repeated OrderItem order_item = 1;
+}
+
+message Customer{
+    string customer_name = 1;
+    string customer_phone = 2;
+    string customer_email = 3;
+    string description = 4;
+}
+
+message GetCustomerByIdRequest{
+    string id = 1; 
+}
+
+message GetCustomerByIdResponse{
+    Customer customer = 1;
+}
+
+message GetOrderQuantityByProductIdRequest{
+    string product_id = 1;
+}
+
+message GetOrderQuantityByProductIdResponse{
+    int64 quantity = 1;
 }

@@ -29,10 +29,15 @@ class OrderServiceStub(object):
                 request_serializer=order__pb2.GetOrderItemsByProductIdRequest.SerializeToString,
                 response_deserializer=order__pb2.GetOrderItemsByProductIdResponse.FromString,
                 )
-        self.GetCustomer = channel.unary_unary(
-                '/order.OrderService/GetCustomer',
-                request_serializer=order__pb2.GetCustomerRequest.SerializeToString,
-                response_deserializer=order__pb2.GetCustomerResponse.FromString,
+        self.GetCustomerById = channel.unary_unary(
+                '/order.OrderService/GetCustomerById',
+                request_serializer=order__pb2.GetCustomerByIdRequest.SerializeToString,
+                response_deserializer=order__pb2.GetCustomerByIdResponse.FromString,
+                )
+        self.GetOrderQuantityByProductId = channel.unary_unary(
+                '/order.OrderService/GetOrderQuantityByProductId',
+                request_serializer=order__pb2.GetOrderQuantityByProductIdRequest.SerializeToString,
+                response_deserializer=order__pb2.GetOrderQuantityByProductIdResponse.FromString,
                 )
 
 
@@ -57,7 +62,13 @@ class OrderServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetCustomer(self, request, context):
+    def GetCustomerById(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetOrderQuantityByProductId(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -81,10 +92,15 @@ def add_OrderServiceServicer_to_server(servicer, server):
                     request_deserializer=order__pb2.GetOrderItemsByProductIdRequest.FromString,
                     response_serializer=order__pb2.GetOrderItemsByProductIdResponse.SerializeToString,
             ),
-            'GetCustomer': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetCustomer,
-                    request_deserializer=order__pb2.GetCustomerRequest.FromString,
-                    response_serializer=order__pb2.GetCustomerResponse.SerializeToString,
+            'GetCustomerById': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetCustomerById,
+                    request_deserializer=order__pb2.GetCustomerByIdRequest.FromString,
+                    response_serializer=order__pb2.GetCustomerByIdResponse.SerializeToString,
+            ),
+            'GetOrderQuantityByProductId': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOrderQuantityByProductId,
+                    request_deserializer=order__pb2.GetOrderQuantityByProductIdRequest.FromString,
+                    response_serializer=order__pb2.GetOrderQuantityByProductIdResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -148,7 +164,7 @@ class OrderService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetCustomer(request,
+    def GetCustomerById(request,
             target,
             options=(),
             channel_credentials=None,
@@ -158,8 +174,25 @@ class OrderService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/order.OrderService/GetCustomer',
-            order__pb2.GetCustomerRequest.SerializeToString,
-            order__pb2.GetCustomerResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/order.OrderService/GetCustomerById',
+            order__pb2.GetCustomerByIdRequest.SerializeToString,
+            order__pb2.GetCustomerByIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetOrderQuantityByProductId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/order.OrderService/GetOrderQuantityByProductId',
+            order__pb2.GetOrderQuantityByProductIdRequest.SerializeToString,
+            order__pb2.GetOrderQuantityByProductIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
