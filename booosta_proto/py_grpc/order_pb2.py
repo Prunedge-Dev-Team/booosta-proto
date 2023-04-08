@@ -12,49 +12,50 @@ _sym_db = _symbol_database.Default()
 
 
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0border.proto\x12\x05order\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8c\x03\n\x05Order\x12\x13\n\x0b\x63ustomer_id\x18\x01 \x01(\t\x12\x14\n\x0cpayment_type\x18\x02 \x01(\t\x12\x16\n\x0epayment_option\x18\x03 \x01(\t\x12\x16\n\x0e\x61mount_payment\x18\x04 \x01(\x02\x12\x14\n\x0cshipping_fee\x18\x05 \x01(\x02\x12\x0f\n\x07\x62\x61lance\x18\x06 \x01(\x02\x12\x13\n\x0btotal_price\x18\x07 \x01(\x02\x12\x30\n\x0cpayment_date\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x34\n\x10\x62\x61lance_due_date\x18\t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x10\n\x08\x64iscount\x18\n \x01(\x02\x12\x13\n\x0bgrand_total\x18\x0b \x01(\x02\x12.\n\nsales_date\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x16\n\x0etransaction_id\x18\r \x01(\t\x12\x15\n\rcreated_by_id\x18\x0e \x01(\t\"\xc2\x01\n\tOrderItem\x12\x12\n\nproduct_id\x18\x01 \x01(\t\x12\x10\n\x08order_id\x18\x02 \x01(\t\x12\x10\n\x08quantity\x18\x03 \x01(\x03\x12\x1e\n\x16\x64iscount_selling_price\x18\x04 \x01(\x02\x12\x1a\n\x12product_cost_price\x18\x05 \x01(\x02\x12\x15\n\rselling_price\x18\x06 \x01(\x02\x12\x13\n\x0btotal_price\x18\x07 \x01(\x02\x12\x15\n\rcreated_by_id\x18\x08 \x01(\t\"7\n\x13GetOrderByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x14\n\x0cpayment_type\x18\x02 \x01(\t\"Y\n*GetOrderByCreatedByIdAndPaymentTypeRequest\x12\x15\n\rcreated_by_id\x18\x01 \x01(\t\x12\x14\n\x0cpayment_type\x18\x02 \x01(\t\"%\n\x17GetOrderItemByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"3\n\x14GetOrderByIdResponse\x12\x1b\n\x05order\x18\x01 \x01(\x0b\x32\x0c.order.Order\"J\n+GetOrderByCreatedByIdAndPaymentTypeResponse\x12\x1b\n\x05order\x18\x01 \x03(\x0b\x32\x0c.order.Order\"@\n\x18GetOrderItemByIdResponse\x12$\n\norder_item\x18\x01 \x01(\x0b\x32\x10.order.OrderItem\"5\n\x1fGetOrderItemsByProductIdRequest\x12\x12\n\nproduct_id\x18\x01 \x01(\t\"Z\n-GetOrderItemsByProductIdAndCreatedByIdRequest\x12\x15\n\rcreated_by_id\x18\x01 \x01(\t\x12\x12\n\nproduct_id\x18\x02 \x01(\t\":\n!GetOrderItemsByCreatedByIdRequest\x12\x15\n\rcreated_by_id\x18\x01 \x01(\t\">\n\x16OrderItemsListResponse\x12$\n\norder_item\x18\x01 \x03(\x0b\x32\x10.order.OrderItem\"f\n\x08\x43ustomer\x12\x15\n\rcustomer_name\x18\x01 \x01(\t\x12\x16\n\x0e\x63ustomer_phone\x18\x02 \x01(\t\x12\x16\n\x0e\x63ustomer_email\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\"$\n\x16GetCustomerByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"<\n\x17GetCustomerByIdResponse\x12!\n\x08\x63ustomer\x18\x01 \x01(\x0b\x32\x0f.order.Customer\"<\n&GetOrderItemQuantityByProductIdRequest\x12\x12\n\nproduct_id\x18\x01 \x01(\t\";\n\'GetOrderItemQuantityByProductIdResponse\x12\x10\n\x08quantity\x18\x01 \x01(\x03\x32\xe9\x06\n\x0cOrderService\x12I\n\x0cGetOrderById\x12\x1a.order.GetOrderByIdRequest\x1a\x1b.order.GetOrderByIdResponse\"\x00\x12U\n\x10GetOrderItemById\x12\x1e.order.GetOrderItemByIdRequest\x1a\x1f.order.GetOrderItemByIdResponse\"\x00\x12\x63\n\x18GetOrderItemsByProductId\x12&.order.GetOrderItemsByProductIdRequest\x1a\x1d.order.OrderItemsListResponse\"\x00\x12R\n\x0fGetCustomerById\x12\x1d.order.GetCustomerByIdRequest\x1a\x1e.order.GetCustomerByIdResponse\"\x00\x12\x82\x01\n\x1fGetOrderItemQuantityByProductId\x12-.order.GetOrderItemQuantityByProductIdRequest\x1a..order.GetOrderItemQuantityByProductIdResponse\"\x00\x12g\n\x1aGetOrderItemsByCreatedById\x12(.order.GetOrderItemsByCreatedByIdRequest\x1a\x1d.order.OrderItemsListResponse\"\x00\x12\x8e\x01\n#GetOrderByCreatedByIdAndPaymentType\x12\x31.order.GetOrderByCreatedByIdAndPaymentTypeRequest\x1a\x32.order.GetOrderByCreatedByIdAndPaymentTypeResponse\"\x00\x12\x7f\n&GetOrderItemsByProductIdAndCreatedById\x12\x34.order.GetOrderItemsByProductIdAndCreatedByIdRequest\x1a\x1d.order.OrderItemsListResponse\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0border.proto\x12\x05order\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bgoogle/protobuf/empty.proto\"\x8c\x03\n\x05Order\x12\x13\n\x0b\x63ustomer_id\x18\x01 \x01(\t\x12\x14\n\x0cpayment_type\x18\x02 \x01(\t\x12\x16\n\x0epayment_option\x18\x03 \x01(\t\x12\x16\n\x0e\x61mount_payment\x18\x04 \x01(\x02\x12\x14\n\x0cshipping_fee\x18\x05 \x01(\x02\x12\x0f\n\x07\x62\x61lance\x18\x06 \x01(\x02\x12\x13\n\x0btotal_price\x18\x07 \x01(\x02\x12\x30\n\x0cpayment_date\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x34\n\x10\x62\x61lance_due_date\x18\t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x10\n\x08\x64iscount\x18\n \x01(\x02\x12\x13\n\x0bgrand_total\x18\x0b \x01(\x02\x12.\n\nsales_date\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x16\n\x0etransaction_id\x18\r \x01(\t\x12\x15\n\rcreated_by_id\x18\x0e \x01(\t\"\xc2\x01\n\tOrderItem\x12\x12\n\nproduct_id\x18\x01 \x01(\t\x12\x10\n\x08order_id\x18\x02 \x01(\t\x12\x10\n\x08quantity\x18\x03 \x01(\x03\x12\x1e\n\x16\x64iscount_selling_price\x18\x04 \x01(\x02\x12\x1a\n\x12product_cost_price\x18\x05 \x01(\x02\x12\x15\n\rselling_price\x18\x06 \x01(\x02\x12\x13\n\x0btotal_price\x18\x07 \x01(\x02\x12\x15\n\rcreated_by_id\x18\x08 \x01(\t\"7\n\x13GetOrderByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x14\n\x0cpayment_type\x18\x02 \x01(\t\"Y\n*GetOrderByCreatedByIdAndPaymentTypeRequest\x12\x15\n\rcreated_by_id\x18\x01 \x01(\t\x12\x14\n\x0cpayment_type\x18\x02 \x01(\t\"%\n\x17GetOrderItemByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"3\n\x14GetOrderByIdResponse\x12\x1b\n\x05order\x18\x01 \x01(\x0b\x32\x0c.order.Order\"J\n+GetOrderByCreatedByIdAndPaymentTypeResponse\x12\x1b\n\x05order\x18\x01 \x03(\x0b\x32\x0c.order.Order\"@\n\x18GetOrderItemByIdResponse\x12$\n\norder_item\x18\x01 \x01(\x0b\x32\x10.order.OrderItem\"5\n\x1fGetOrderItemsByProductIdRequest\x12\x12\n\nproduct_id\x18\x01 \x01(\t\"Z\n-GetOrderItemsByProductIdAndCreatedByIdRequest\x12\x15\n\rcreated_by_id\x18\x01 \x01(\t\x12\x12\n\nproduct_id\x18\x02 \x01(\t\":\n!GetOrderItemsByCreatedByIdRequest\x12\x15\n\rcreated_by_id\x18\x01 \x01(\t\">\n\x16OrderItemsListResponse\x12$\n\norder_item\x18\x01 \x03(\x0b\x32\x10.order.OrderItem\"f\n\x08\x43ustomer\x12\x15\n\rcustomer_name\x18\x01 \x01(\t\x12\x16\n\x0e\x63ustomer_phone\x18\x02 \x01(\t\x12\x16\n\x0e\x63ustomer_email\x18\x03 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x04 \x01(\t\"$\n\x16GetCustomerByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"<\n\x17GetCustomerByIdResponse\x12!\n\x08\x63ustomer\x18\x01 \x01(\x0b\x32\x0f.order.Customer\"<\n&GetOrderItemQuantityByProductIdRequest\x12\x12\n\nproduct_id\x18\x01 \x01(\t\";\n\'GetOrderItemQuantityByProductIdResponse\x12\x10\n\x08quantity\x18\x01 \x01(\x03\x32\xb6\x07\n\x0cOrderService\x12I\n\x0cGetOrderById\x12\x1a.order.GetOrderByIdRequest\x1a\x1b.order.GetOrderByIdResponse\"\x00\x12U\n\x10GetOrderItemById\x12\x1e.order.GetOrderItemByIdRequest\x1a\x1f.order.GetOrderItemByIdResponse\"\x00\x12\x63\n\x18GetOrderItemsByProductId\x12&.order.GetOrderItemsByProductIdRequest\x1a\x1d.order.OrderItemsListResponse\"\x00\x12R\n\x0fGetCustomerById\x12\x1d.order.GetCustomerByIdRequest\x1a\x1e.order.GetCustomerByIdResponse\"\x00\x12\x82\x01\n\x1fGetOrderItemQuantityByProductId\x12-.order.GetOrderItemQuantityByProductIdRequest\x1a..order.GetOrderItemQuantityByProductIdResponse\"\x00\x12g\n\x1aGetOrderItemsByCreatedById\x12(.order.GetOrderItemsByCreatedByIdRequest\x1a\x1d.order.OrderItemsListResponse\"\x00\x12\x8e\x01\n#GetOrderByCreatedByIdAndPaymentType\x12\x31.order.GetOrderByCreatedByIdAndPaymentTypeRequest\x1a\x32.order.GetOrderByCreatedByIdAndPaymentTypeResponse\"\x00\x12\x7f\n&GetOrderItemsByProductIdAndCreatedById\x12\x34.order.GetOrderItemsByProductIdAndCreatedByIdRequest\x1a\x1d.order.OrderItemsListResponse\"\x00\x12K\n\x10GetAllOrderItems\x12\x16.google.protobuf.Empty\x1a\x1d.order.OrderItemsListResponse\"\x00\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'order_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _ORDER._serialized_start=56
-  _ORDER._serialized_end=452
-  _ORDERITEM._serialized_start=455
-  _ORDERITEM._serialized_end=649
-  _GETORDERBYIDREQUEST._serialized_start=651
-  _GETORDERBYIDREQUEST._serialized_end=706
-  _GETORDERBYCREATEDBYIDANDPAYMENTTYPEREQUEST._serialized_start=708
-  _GETORDERBYCREATEDBYIDANDPAYMENTTYPEREQUEST._serialized_end=797
-  _GETORDERITEMBYIDREQUEST._serialized_start=799
-  _GETORDERITEMBYIDREQUEST._serialized_end=836
-  _GETORDERBYIDRESPONSE._serialized_start=838
-  _GETORDERBYIDRESPONSE._serialized_end=889
-  _GETORDERBYCREATEDBYIDANDPAYMENTTYPERESPONSE._serialized_start=891
-  _GETORDERBYCREATEDBYIDANDPAYMENTTYPERESPONSE._serialized_end=965
-  _GETORDERITEMBYIDRESPONSE._serialized_start=967
-  _GETORDERITEMBYIDRESPONSE._serialized_end=1031
-  _GETORDERITEMSBYPRODUCTIDREQUEST._serialized_start=1033
-  _GETORDERITEMSBYPRODUCTIDREQUEST._serialized_end=1086
-  _GETORDERITEMSBYPRODUCTIDANDCREATEDBYIDREQUEST._serialized_start=1088
-  _GETORDERITEMSBYPRODUCTIDANDCREATEDBYIDREQUEST._serialized_end=1178
-  _GETORDERITEMSBYCREATEDBYIDREQUEST._serialized_start=1180
-  _GETORDERITEMSBYCREATEDBYIDREQUEST._serialized_end=1238
-  _ORDERITEMSLISTRESPONSE._serialized_start=1240
-  _ORDERITEMSLISTRESPONSE._serialized_end=1302
-  _CUSTOMER._serialized_start=1304
-  _CUSTOMER._serialized_end=1406
-  _GETCUSTOMERBYIDREQUEST._serialized_start=1408
-  _GETCUSTOMERBYIDREQUEST._serialized_end=1444
-  _GETCUSTOMERBYIDRESPONSE._serialized_start=1446
-  _GETCUSTOMERBYIDRESPONSE._serialized_end=1506
-  _GETORDERITEMQUANTITYBYPRODUCTIDREQUEST._serialized_start=1508
-  _GETORDERITEMQUANTITYBYPRODUCTIDREQUEST._serialized_end=1568
-  _GETORDERITEMQUANTITYBYPRODUCTIDRESPONSE._serialized_start=1570
-  _GETORDERITEMQUANTITYBYPRODUCTIDRESPONSE._serialized_end=1629
-  _ORDERSERVICE._serialized_start=1632
-  _ORDERSERVICE._serialized_end=2505
+  _ORDER._serialized_start=85
+  _ORDER._serialized_end=481
+  _ORDERITEM._serialized_start=484
+  _ORDERITEM._serialized_end=678
+  _GETORDERBYIDREQUEST._serialized_start=680
+  _GETORDERBYIDREQUEST._serialized_end=735
+  _GETORDERBYCREATEDBYIDANDPAYMENTTYPEREQUEST._serialized_start=737
+  _GETORDERBYCREATEDBYIDANDPAYMENTTYPEREQUEST._serialized_end=826
+  _GETORDERITEMBYIDREQUEST._serialized_start=828
+  _GETORDERITEMBYIDREQUEST._serialized_end=865
+  _GETORDERBYIDRESPONSE._serialized_start=867
+  _GETORDERBYIDRESPONSE._serialized_end=918
+  _GETORDERBYCREATEDBYIDANDPAYMENTTYPERESPONSE._serialized_start=920
+  _GETORDERBYCREATEDBYIDANDPAYMENTTYPERESPONSE._serialized_end=994
+  _GETORDERITEMBYIDRESPONSE._serialized_start=996
+  _GETORDERITEMBYIDRESPONSE._serialized_end=1060
+  _GETORDERITEMSBYPRODUCTIDREQUEST._serialized_start=1062
+  _GETORDERITEMSBYPRODUCTIDREQUEST._serialized_end=1115
+  _GETORDERITEMSBYPRODUCTIDANDCREATEDBYIDREQUEST._serialized_start=1117
+  _GETORDERITEMSBYPRODUCTIDANDCREATEDBYIDREQUEST._serialized_end=1207
+  _GETORDERITEMSBYCREATEDBYIDREQUEST._serialized_start=1209
+  _GETORDERITEMSBYCREATEDBYIDREQUEST._serialized_end=1267
+  _ORDERITEMSLISTRESPONSE._serialized_start=1269
+  _ORDERITEMSLISTRESPONSE._serialized_end=1331
+  _CUSTOMER._serialized_start=1333
+  _CUSTOMER._serialized_end=1435
+  _GETCUSTOMERBYIDREQUEST._serialized_start=1437
+  _GETCUSTOMERBYIDREQUEST._serialized_end=1473
+  _GETCUSTOMERBYIDRESPONSE._serialized_start=1475
+  _GETCUSTOMERBYIDRESPONSE._serialized_end=1535
+  _GETORDERITEMQUANTITYBYPRODUCTIDREQUEST._serialized_start=1537
+  _GETORDERITEMQUANTITYBYPRODUCTIDREQUEST._serialized_end=1597
+  _GETORDERITEMQUANTITYBYPRODUCTIDRESPONSE._serialized_start=1599
+  _GETORDERITEMQUANTITYBYPRODUCTIDRESPONSE._serialized_end=1658
+  _ORDERSERVICE._serialized_start=1661
+  _ORDERSERVICE._serialized_end=2611
 # @@protoc_insertion_point(module_scope)

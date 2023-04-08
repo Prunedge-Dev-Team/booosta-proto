@@ -1,6 +1,7 @@
 syntax = "proto3";
 package order;
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
 
 service OrderService {
     rpc GetOrderById(GetOrderByIdRequest) returns (GetOrderByIdResponse) {}
@@ -11,6 +12,7 @@ service OrderService {
     rpc GetOrderItemsByCreatedById(GetOrderItemsByCreatedByIdRequest) returns (OrderItemsListResponse) {}
     rpc GetOrderByCreatedByIdAndPaymentType(GetOrderByCreatedByIdAndPaymentTypeRequest) returns (GetOrderByCreatedByIdAndPaymentTypeResponse) {}
     rpc GetOrderItemsByProductIdAndCreatedById(GetOrderItemsByProductIdAndCreatedByIdRequest) returns (OrderItemsListResponse) {}
+    rpc GetAllOrderItems(google.protobuf.Empty) returns (OrderItemsListResponse) {}
 }
 
 
