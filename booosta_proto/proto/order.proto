@@ -13,6 +13,7 @@ service OrderService {
     rpc GetOrderByCreatedByIdAndPaymentType(GetOrderByCreatedByIdAndPaymentTypeRequest) returns (GetOrderByCreatedByIdAndPaymentTypeResponse) {}
     rpc GetOrderItemsByProductIdAndCreatedById(GetOrderItemsByProductIdAndCreatedByIdRequest) returns (OrderItemsListResponse) {}
     rpc GetAllOrderItems(google.protobuf.Empty) returns (OrderItemsListResponse) {}
+    rpc GetAllCustomers(google.protobuf.Empty) returns (CustomerListResponse) {}
 }
 
 
@@ -100,6 +101,10 @@ message GetCustomerByIdRequest{
 
 message GetCustomerByIdResponse{
     Customer customer = 1;
+}
+
+message CustomerListResponse{
+    repeated Customer customer = 1;
 }
 
 message GetOrderItemQuantityByProductIdRequest{

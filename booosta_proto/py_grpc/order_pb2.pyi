@@ -19,6 +19,12 @@ class Customer(_message.Message):
     description: str
     def __init__(self, customer_name: _Optional[str] = ..., customer_phone: _Optional[str] = ..., customer_email: _Optional[str] = ..., description: _Optional[str] = ...) -> None: ...
 
+class CustomerListResponse(_message.Message):
+    __slots__ = ["customer"]
+    CUSTOMER_FIELD_NUMBER: _ClassVar[int]
+    customer: _containers.RepeatedCompositeFieldContainer[Customer]
+    def __init__(self, customer: _Optional[_Iterable[_Union[Customer, _Mapping]]] = ...) -> None: ...
+
 class GetCustomerByIdRequest(_message.Message):
     __slots__ = ["id"]
     ID_FIELD_NUMBER: _ClassVar[int]
