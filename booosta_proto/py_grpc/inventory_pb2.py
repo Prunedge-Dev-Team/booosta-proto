@@ -12,39 +12,40 @@ _sym_db = _symbol_database.Default()
 
 
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0finventory.proto\x12\tinventory\x1a\x1fgoogle/protobuf/timestamp.proto\"\x95\x02\n\x10ProductInventory\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\ncost_price\x18\x02 \x01(\x02\x12\x18\n\x10\x63urrent_quantity\x18\x03 \x01(\x03\x12\x1e\n\x16minimum_stock_quantity\x18\x04 \x01(\x03\x12\x15\n\rcreated_by_id\x18\x05 \x01(\t\x12\r\n\x05image\x18\x06 \x01(\t\x12\x18\n\x10\x64\x65\x66\x61ult_quantity\x18\x07 \x01(\x03\x12\x11\n\tunit_type\x18\x08 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\t \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\n \x01(\t\x12\x14\n\x0clow_quantity\x18\x0b \x01(\x08\x12\x15\n\rselling_price\x18\x0c \x01(\x02\"\xb8\x02\n\x10ProductAdminList\x12\x16\n\x0estock_quantity\x18\x01 \x01(\x03\x12\x13\n\x0bstock_value\x18\x02 \x01(\x03\x12\x0c\n\x04sold\x18\x03 \x01(\x03\x12\x0e\n\x06status\x18\x04 \x01(\t\x12\x15\n\rselling_price\x18\x05 \x01(\x02\x12\x15\n\rbusiness_name\x18\x06 \x01(\t\x12\x12\n\ncost_price\x18\x07 \x01(\x02\x12\n\n\x02id\x18\x08 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\t \x01(\t\x12\x1e\n\x16minimum_stock_quantity\x18\n \x01(\x03\x12\x18\n\x10\x64\x65\x66\x61ult_quantity\x18\x0b \x01(\x03\x12\x0c\n\x04name\x18\x0c \x01(\t\x12.\n\ncreated_at\x18\r \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x18\n\x08UnitType\x12\x0c\n\x04name\x18\x01 \x01(\t\",\n\x1eGetProductInventoryByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"$\n\x16GetUnitTypeByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"Y\n\x1fGetProductInventoryByIdResponse\x12\x36\n\x11product_inventory\x18\x01 \x01(\x0b\x32\x1b.inventory.ProductInventory\"A\n\x17GetUnitTypeByIdResponse\x12&\n\tunit_type\x18\x01 \x01(\x0b\x32\x13.inventory.UnitType\"\\\n-GetProductInventoryByUserIDAndQuantityRequest\x12\x15\n\rcreated_by_id\x18\x01 \x01(\t\x12\x14\n\x0clow_quantity\x18\x02 \x01(\x08\"V\n\x1cProductInventoryListResponse\x12\x36\n\x11product_inventory\x18\x01 \x03(\x0b\x32\x1b.inventory.ProductInventory\";\n\"GetProductInventoryByUserIdRequest\x12\x15\n\rcreated_by_id\x18\x01 \x01(\t\"X\n\x1dGetRetailerProductListRequest\x12\x15\n\rcreated_by_id\x18\x01 \x01(\t\x12\x0e\n\x06status\x18\x02 \x01(\t\x12\x10\n\x08ordering\x18\x03 \x01(\t\"X\n\x1eGetRetailerProductListResponse\x12\x36\n\x11product_inventory\x18\x01 \x03(\x0b\x32\x1b.inventory.ProductAdminList2\xdc\x04\n\x10InventoryService\x12r\n\x17GetProductInventoryById\x12).inventory.GetProductInventoryByIdRequest\x1a*.inventory.GetProductInventoryByIdResponse\"\x00\x12Z\n\x0fGetUnitTypeById\x12!.inventory.GetUnitTypeByIdRequest\x1a\".inventory.GetUnitTypeByIdResponse\"\x00\x12\x8d\x01\n&GetProductInventoryByUserIDAndQuantity\x12\x38.inventory.GetProductInventoryByUserIDAndQuantityRequest\x1a\'.inventory.ProductInventoryListResponse\"\x00\x12w\n\x1bGetProductInventoryByUserId\x12-.inventory.GetProductInventoryByUserIdRequest\x1a\'.inventory.ProductInventoryListResponse\"\x00\x12o\n\x16GetRetailerProductList\x12(.inventory.GetRetailerProductListRequest\x1a).inventory.GetRetailerProductListResponse\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0finventory.proto\x12\tinventory\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1bgoogle/protobuf/empty.proto\"\x95\x02\n\x10ProductInventory\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\ncost_price\x18\x02 \x01(\x02\x12\x18\n\x10\x63urrent_quantity\x18\x03 \x01(\x03\x12\x1e\n\x16minimum_stock_quantity\x18\x04 \x01(\x03\x12\x15\n\rcreated_by_id\x18\x05 \x01(\t\x12\r\n\x05image\x18\x06 \x01(\t\x12\x18\n\x10\x64\x65\x66\x61ult_quantity\x18\x07 \x01(\x03\x12\x11\n\tunit_type\x18\x08 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\t \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\n \x01(\t\x12\x14\n\x0clow_quantity\x18\x0b \x01(\x08\x12\x15\n\rselling_price\x18\x0c \x01(\x02\"\xb8\x02\n\x10ProductAdminList\x12\x16\n\x0estock_quantity\x18\x01 \x01(\x03\x12\x13\n\x0bstock_value\x18\x02 \x01(\x03\x12\x0c\n\x04sold\x18\x03 \x01(\x03\x12\x0e\n\x06status\x18\x04 \x01(\t\x12\x15\n\rselling_price\x18\x05 \x01(\x02\x12\x15\n\rbusiness_name\x18\x06 \x01(\t\x12\x12\n\ncost_price\x18\x07 \x01(\x02\x12\n\n\x02id\x18\x08 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\t \x01(\t\x12\x1e\n\x16minimum_stock_quantity\x18\n \x01(\x03\x12\x18\n\x10\x64\x65\x66\x61ult_quantity\x18\x0b \x01(\x03\x12\x0c\n\x04name\x18\x0c \x01(\t\x12.\n\ncreated_at\x18\r \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\x18\n\x08UnitType\x12\x0c\n\x04name\x18\x01 \x01(\t\",\n\x1eGetProductInventoryByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"$\n\x16GetUnitTypeByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"Y\n\x1fGetProductInventoryByIdResponse\x12\x36\n\x11product_inventory\x18\x01 \x01(\x0b\x32\x1b.inventory.ProductInventory\"A\n\x17GetUnitTypeByIdResponse\x12&\n\tunit_type\x18\x01 \x01(\x0b\x32\x13.inventory.UnitType\"\\\n-GetProductInventoryByUserIDAndQuantityRequest\x12\x15\n\rcreated_by_id\x18\x01 \x01(\t\x12\x14\n\x0clow_quantity\x18\x02 \x01(\x08\"V\n\x1cProductInventoryListResponse\x12\x36\n\x11product_inventory\x18\x01 \x03(\x0b\x32\x1b.inventory.ProductInventory\";\n\"GetProductInventoryByUserIdRequest\x12\x15\n\rcreated_by_id\x18\x01 \x01(\t\"X\n\x1dGetRetailerProductListRequest\x12\x15\n\rcreated_by_id\x18\x01 \x01(\t\x12\x0e\n\x06status\x18\x02 \x01(\t\x12\x10\n\x08ordering\x18\x03 \x01(\t\"X\n\x1eGetRetailerProductListResponse\x12\x36\n\x11product_inventory\x18\x01 \x03(\x0b\x32\x1b.inventory.ProductAdminList2\xbb\x05\n\x10InventoryService\x12r\n\x17GetProductInventoryById\x12).inventory.GetProductInventoryByIdRequest\x1a*.inventory.GetProductInventoryByIdResponse\"\x00\x12Z\n\x0fGetUnitTypeById\x12!.inventory.GetUnitTypeByIdRequest\x1a\".inventory.GetUnitTypeByIdResponse\"\x00\x12\x8d\x01\n&GetProductInventoryByUserIDAndQuantity\x12\x38.inventory.GetProductInventoryByUserIDAndQuantityRequest\x1a\'.inventory.ProductInventoryListResponse\"\x00\x12w\n\x1bGetProductInventoryByUserId\x12-.inventory.GetProductInventoryByUserIdRequest\x1a\'.inventory.ProductInventoryListResponse\"\x00\x12o\n\x16GetRetailerProductList\x12(.inventory.GetRetailerProductListRequest\x1a).inventory.GetRetailerProductListResponse\"\x00\x12]\n\x18GetAllProductInventories\x12\x16.google.protobuf.Empty\x1a\'.inventory.ProductInventoryListResponse\"\x00\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'inventory_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  _PRODUCTINVENTORY._serialized_start=64
-  _PRODUCTINVENTORY._serialized_end=341
-  _PRODUCTADMINLIST._serialized_start=344
-  _PRODUCTADMINLIST._serialized_end=656
-  _UNITTYPE._serialized_start=658
-  _UNITTYPE._serialized_end=682
-  _GETPRODUCTINVENTORYBYIDREQUEST._serialized_start=684
-  _GETPRODUCTINVENTORYBYIDREQUEST._serialized_end=728
-  _GETUNITTYPEBYIDREQUEST._serialized_start=730
-  _GETUNITTYPEBYIDREQUEST._serialized_end=766
-  _GETPRODUCTINVENTORYBYIDRESPONSE._serialized_start=768
-  _GETPRODUCTINVENTORYBYIDRESPONSE._serialized_end=857
-  _GETUNITTYPEBYIDRESPONSE._serialized_start=859
-  _GETUNITTYPEBYIDRESPONSE._serialized_end=924
-  _GETPRODUCTINVENTORYBYUSERIDANDQUANTITYREQUEST._serialized_start=926
-  _GETPRODUCTINVENTORYBYUSERIDANDQUANTITYREQUEST._serialized_end=1018
-  _PRODUCTINVENTORYLISTRESPONSE._serialized_start=1020
-  _PRODUCTINVENTORYLISTRESPONSE._serialized_end=1106
-  _GETPRODUCTINVENTORYBYUSERIDREQUEST._serialized_start=1108
-  _GETPRODUCTINVENTORYBYUSERIDREQUEST._serialized_end=1167
-  _GETRETAILERPRODUCTLISTREQUEST._serialized_start=1169
-  _GETRETAILERPRODUCTLISTREQUEST._serialized_end=1257
-  _GETRETAILERPRODUCTLISTRESPONSE._serialized_start=1259
-  _GETRETAILERPRODUCTLISTRESPONSE._serialized_end=1347
-  _INVENTORYSERVICE._serialized_start=1350
-  _INVENTORYSERVICE._serialized_end=1954
+  _PRODUCTINVENTORY._serialized_start=93
+  _PRODUCTINVENTORY._serialized_end=370
+  _PRODUCTADMINLIST._serialized_start=373
+  _PRODUCTADMINLIST._serialized_end=685
+  _UNITTYPE._serialized_start=687
+  _UNITTYPE._serialized_end=711
+  _GETPRODUCTINVENTORYBYIDREQUEST._serialized_start=713
+  _GETPRODUCTINVENTORYBYIDREQUEST._serialized_end=757
+  _GETUNITTYPEBYIDREQUEST._serialized_start=759
+  _GETUNITTYPEBYIDREQUEST._serialized_end=795
+  _GETPRODUCTINVENTORYBYIDRESPONSE._serialized_start=797
+  _GETPRODUCTINVENTORYBYIDRESPONSE._serialized_end=886
+  _GETUNITTYPEBYIDRESPONSE._serialized_start=888
+  _GETUNITTYPEBYIDRESPONSE._serialized_end=953
+  _GETPRODUCTINVENTORYBYUSERIDANDQUANTITYREQUEST._serialized_start=955
+  _GETPRODUCTINVENTORYBYUSERIDANDQUANTITYREQUEST._serialized_end=1047
+  _PRODUCTINVENTORYLISTRESPONSE._serialized_start=1049
+  _PRODUCTINVENTORYLISTRESPONSE._serialized_end=1135
+  _GETPRODUCTINVENTORYBYUSERIDREQUEST._serialized_start=1137
+  _GETPRODUCTINVENTORYBYUSERIDREQUEST._serialized_end=1196
+  _GETRETAILERPRODUCTLISTREQUEST._serialized_start=1198
+  _GETRETAILERPRODUCTLISTREQUEST._serialized_end=1286
+  _GETRETAILERPRODUCTLISTRESPONSE._serialized_start=1288
+  _GETRETAILERPRODUCTLISTRESPONSE._serialized_end=1376
+  _INVENTORYSERVICE._serialized_start=1379
+  _INVENTORYSERVICE._serialized_end=2078
 # @@protoc_insertion_point(module_scope)
