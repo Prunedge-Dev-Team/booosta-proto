@@ -7,6 +7,16 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
+class ChangeProductInventoryCountRequest(_message.Message):
+    __slots__ = ["change_type", "prodcut_id", "value"]
+    CHANGE_TYPE_FIELD_NUMBER: _ClassVar[int]
+    PRODCUT_ID_FIELD_NUMBER: _ClassVar[int]
+    VALUE_FIELD_NUMBER: _ClassVar[int]
+    change_type: str
+    prodcut_id: str
+    value: int
+    def __init__(self, prodcut_id: _Optional[str] = ..., change_type: _Optional[str] = ..., value: _Optional[int] = ...) -> None: ...
+
 class GetProductInventoryByIdRequest(_message.Message):
     __slots__ = ["id"]
     ID_FIELD_NUMBER: _ClassVar[int]

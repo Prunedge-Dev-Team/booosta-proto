@@ -10,6 +10,7 @@ service InventoryService {
     rpc GetProductInventoryByUserId(GetProductInventoryByUserIdRequest) returns (ProductInventoryListResponse) {}
     rpc GetRetailerProductList(GetRetailerProductListRequest) returns (GetRetailerProductListResponse) {}
     rpc GetAllProductInventories(google.protobuf.Empty) returns (ProductInventoryListResponse) {}
+    rpc ChangeProductInventoryCount(ChangeProductInventoryCountRequest) returns (GetProductInventoryByIdResponse) {}
 }
 
 
@@ -68,6 +69,12 @@ message GetUnitTypeByIdResponse {
 message GetProductInventoryByUserIDAndQuantityRequest {
     string created_by_id = 1;
     bool low_quantity = 2;
+}
+
+message ChangeProductInventoryCountRequest {
+    string prodcut_id = 1;
+    string change_type = 2;
+    int64 value = 3;
 }
 
 message ProductInventoryListResponse {
