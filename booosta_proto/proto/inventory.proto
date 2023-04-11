@@ -72,7 +72,7 @@ message GetProductInventoryByUserIDAndQuantityRequest {
 }
 
 message ChangeProductInventoryCountRequest {
-    string prodcut_id = 1;
+    string id = 1;
     string change_type = 2;
     int64 value = 3;
 }
