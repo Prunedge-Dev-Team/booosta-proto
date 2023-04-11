@@ -14,34 +14,36 @@ service InventoryService {
 
 
 message ProductInventory {
-    string name = 1;
-    float cost_price = 2;
-    int64 current_quantity = 3;
-    int64 minimum_stock_quantity = 4;
-    string created_by_id = 5;
-    string image = 6;
-    int64 default_quantity = 7;
-    string unit_type = 8;
-    string category = 9;
-    string description = 10;
-    bool low_quantity = 11;
-    float selling_price = 12;
+    string id = 1;
+    string name = 2;
+    float cost_price = 3;
+    int64 current_quantity = 4;
+    int64 minimum_stock_quantity = 5;
+    string created_by_id = 6;
+    string image = 7;
+    int64 default_quantity = 8;
+    string unit_type = 9;
+    string category = 10;
+    string description = 11;
+    bool low_quantity = 12;
+    float selling_price = 13;
 }
 
-message ProductAdminList { 
-    int64 stock_quantity = 1; 
-    int64 stock_value = 2; 
-    int64 sold = 3; 
-    string status = 4; 
-    float selling_price = 5; 
-    string business_name = 6; 
-    float cost_price = 7; 
-    string id = 8; 
-    string description = 9; 
-    int64 minimum_stock_quantity = 10; 
-    int64 default_quantity = 11; 
-    string name = 12; 
-    google.protobuf.Timestamp created_at = 13; 
+message ProductAdminList {
+    string id = 1; 
+    int64 stock_quantity = 2; 
+    int64 stock_value = 3; 
+    int64 sold = 4; 
+    string status = 5; 
+    float selling_price = 6; 
+    string business_name = 7; 
+    float cost_price = 8; 
+    string id = 9; 
+    string description = 10; 
+    int64 minimum_stock_quantity = 11; 
+    int64 default_quantity = 12; 
+    string name = 13; 
+    google.protobuf.Timestamp created_at = 14; 
 }
 
 message UnitType {
