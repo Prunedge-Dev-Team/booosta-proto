@@ -11,6 +11,7 @@ service InventoryService {
     rpc GetRetailerProductList(GetRetailerProductListRequest) returns (GetRetailerProductListResponse) {}
     rpc GetAllProductInventories(google.protobuf.Empty) returns (ProductInventoryListResponse) {}
     rpc ChangeProductInventoryCount(ChangeProductInventoryCountRequest) returns (GetProductInventoryByIdResponse) {}
+    rpc UpdateProductInventoryById(UpdateProductInventoryByIdRequest) returns (UpdateProductInventoryByIdResponse) {}
 }
 
 
@@ -92,4 +93,12 @@ message GetRetailerProductListRequest {
 
 message GetRetailerProductListResponse { 
     repeated ProductAdminList product_inventory = 1; 
+}
+
+message UpdateProductInventoryByIdRequest {
+    ProductInventory product_inventory = 1;
+}
+
+message UpdateProductInventoryByIdResponse {
+    ProductInventory product_inventory = 1;
 }

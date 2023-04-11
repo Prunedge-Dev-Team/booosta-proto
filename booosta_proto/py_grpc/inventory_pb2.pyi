@@ -142,3 +142,15 @@ class UnitType(_message.Message):
     NAME_FIELD_NUMBER: _ClassVar[int]
     name: str
     def __init__(self, name: _Optional[str] = ...) -> None: ...
+
+class UpdateProductInventoryByIdRequest(_message.Message):
+    __slots__ = ["product_inventory"]
+    PRODUCT_INVENTORY_FIELD_NUMBER: _ClassVar[int]
+    product_inventory: ProductInventory
+    def __init__(self, product_inventory: _Optional[_Union[ProductInventory, _Mapping]] = ...) -> None: ...
+
+class UpdateProductInventoryByIdResponse(_message.Message):
+    __slots__ = ["product_inventory"]
+    PRODUCT_INVENTORY_FIELD_NUMBER: _ClassVar[int]
+    product_inventory: ProductInventory
+    def __init__(self, product_inventory: _Optional[_Union[ProductInventory, _Mapping]] = ...) -> None: ...

@@ -50,6 +50,11 @@ class InventoryServiceStub(object):
                 request_serializer=inventory__pb2.ChangeProductInventoryCountRequest.SerializeToString,
                 response_deserializer=inventory__pb2.GetProductInventoryByIdResponse.FromString,
                 )
+        self.UpdateProductInventoryById = channel.unary_unary(
+                '/inventory.InventoryService/UpdateProductInventoryById',
+                request_serializer=inventory__pb2.UpdateProductInventoryByIdRequest.SerializeToString,
+                response_deserializer=inventory__pb2.UpdateProductInventoryByIdResponse.FromString,
+                )
 
 
 class InventoryServiceServicer(object):
@@ -97,6 +102,12 @@ class InventoryServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpdateProductInventoryById(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_InventoryServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -134,6 +145,11 @@ def add_InventoryServiceServicer_to_server(servicer, server):
                     servicer.ChangeProductInventoryCount,
                     request_deserializer=inventory__pb2.ChangeProductInventoryCountRequest.FromString,
                     response_serializer=inventory__pb2.GetProductInventoryByIdResponse.SerializeToString,
+            ),
+            'UpdateProductInventoryById': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateProductInventoryById,
+                    request_deserializer=inventory__pb2.UpdateProductInventoryByIdRequest.FromString,
+                    response_serializer=inventory__pb2.UpdateProductInventoryByIdResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -261,5 +277,22 @@ class InventoryService(object):
         return grpc.experimental.unary_unary(request, target, '/inventory.InventoryService/ChangeProductInventoryCount',
             inventory__pb2.ChangeProductInventoryCountRequest.SerializeToString,
             inventory__pb2.GetProductInventoryByIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateProductInventoryById(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/inventory.InventoryService/UpdateProductInventoryById',
+            inventory__pb2.UpdateProductInventoryByIdRequest.SerializeToString,
+            inventory__pb2.UpdateProductInventoryByIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
