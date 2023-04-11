@@ -92,13 +92,14 @@ class ProductAdminList(_message.Message):
     def __init__(self, stock_quantity: _Optional[int] = ..., stock_value: _Optional[int] = ..., sold: _Optional[int] = ..., status: _Optional[str] = ..., selling_price: _Optional[float] = ..., business_name: _Optional[str] = ..., cost_price: _Optional[float] = ..., id: _Optional[str] = ..., description: _Optional[str] = ..., minimum_stock_quantity: _Optional[int] = ..., default_quantity: _Optional[int] = ..., name: _Optional[str] = ..., created_at: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ...) -> None: ...
 
 class ProductInventory(_message.Message):
-    __slots__ = ["category", "cost_price", "created_by_id", "current_quantity", "default_quantity", "description", "image", "low_quantity", "minimum_stock_quantity", "name", "selling_price", "unit_type"]
+    __slots__ = ["category", "cost_price", "created_by_id", "current_quantity", "default_quantity", "description", "id", "image", "low_quantity", "minimum_stock_quantity", "name", "selling_price", "unit_type"]
     CATEGORY_FIELD_NUMBER: _ClassVar[int]
     COST_PRICE_FIELD_NUMBER: _ClassVar[int]
     CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
     CURRENT_QUANTITY_FIELD_NUMBER: _ClassVar[int]
     DEFAULT_QUANTITY_FIELD_NUMBER: _ClassVar[int]
     DESCRIPTION_FIELD_NUMBER: _ClassVar[int]
+    ID_FIELD_NUMBER: _ClassVar[int]
     IMAGE_FIELD_NUMBER: _ClassVar[int]
     LOW_QUANTITY_FIELD_NUMBER: _ClassVar[int]
     MINIMUM_STOCK_QUANTITY_FIELD_NUMBER: _ClassVar[int]
@@ -111,13 +112,14 @@ class ProductInventory(_message.Message):
     current_quantity: int
     default_quantity: int
     description: str
+    id: str
     image: str
     low_quantity: bool
     minimum_stock_quantity: int
     name: str
     selling_price: float
     unit_type: str
-    def __init__(self, name: _Optional[str] = ..., cost_price: _Optional[float] = ..., current_quantity: _Optional[int] = ..., minimum_stock_quantity: _Optional[int] = ..., created_by_id: _Optional[str] = ..., image: _Optional[str] = ..., default_quantity: _Optional[int] = ..., unit_type: _Optional[str] = ..., category: _Optional[str] = ..., description: _Optional[str] = ..., low_quantity: bool = ..., selling_price: _Optional[float] = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., cost_price: _Optional[float] = ..., current_quantity: _Optional[int] = ..., minimum_stock_quantity: _Optional[int] = ..., created_by_id: _Optional[str] = ..., image: _Optional[str] = ..., default_quantity: _Optional[int] = ..., unit_type: _Optional[str] = ..., category: _Optional[str] = ..., description: _Optional[str] = ..., low_quantity: bool = ..., selling_price: _Optional[float] = ...) -> None: ...
 
 class ProductInventoryListResponse(_message.Message):
     __slots__ = ["product_inventory"]
