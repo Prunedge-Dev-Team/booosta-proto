@@ -27,7 +27,7 @@ message ProductInventory {
     string unit_type = 9;
     string category = 10;
     string description = 11;
-    bool low_quantity = 12;
+    optional bool low_quantity = 12;
     float selling_price = 13;
 }
 
