@@ -7,6 +7,14 @@ from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Map
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
+class Category(_message.Message):
+    __slots__ = ["id", "name"]
+    ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    id: str
+    name: str
+    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ...) -> None: ...
+
 class ChangeProductInventoryCountRequest(_message.Message):
     __slots__ = ["change_type", "id", "value"]
     CHANGE_TYPE_FIELD_NUMBER: _ClassVar[int]
@@ -116,7 +124,7 @@ class ProductInventory(_message.Message):
     NAME_FIELD_NUMBER: _ClassVar[int]
     SELLING_PRICE_FIELD_NUMBER: _ClassVar[int]
     UNIT_TYPE_FIELD_NUMBER: _ClassVar[int]
-    category: str
+    category: Category
     cost_price: float
     created_by_id: str
     current_quantity: int
@@ -128,8 +136,8 @@ class ProductInventory(_message.Message):
     minimum_stock_quantity: int
     name: str
     selling_price: float
-    unit_type: str
-    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., cost_price: _Optional[float] = ..., current_quantity: _Optional[int] = ..., minimum_stock_quantity: _Optional[int] = ..., created_by_id: _Optional[str] = ..., image: _Optional[str] = ..., default_quantity: _Optional[int] = ..., unit_type: _Optional[str] = ..., category: _Optional[str] = ..., description: _Optional[str] = ..., low_quantity: bool = ..., selling_price: _Optional[float] = ...) -> None: ...
+    unit_type: UnitType
+    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ..., cost_price: _Optional[float] = ..., current_quantity: _Optional[int] = ..., minimum_stock_quantity: _Optional[int] = ..., created_by_id: _Optional[str] = ..., image: _Optional[str] = ..., default_quantity: _Optional[int] = ..., unit_type: _Optional[_Union[UnitType, _Mapping]] = ..., category: _Optional[_Union[Category, _Mapping]] = ..., description: _Optional[str] = ..., low_quantity: bool = ..., selling_price: _Optional[float] = ...) -> None: ...
 
 class ProductInventoryListResponse(_message.Message):
     __slots__ = ["product_inventory"]
@@ -138,10 +146,12 @@ class ProductInventoryListResponse(_message.Message):
     def __init__(self, product_inventory: _Optional[_Iterable[_Union[ProductInventory, _Mapping]]] = ...) -> None: ...
 
 class UnitType(_message.Message):
-    __slots__ = ["name"]
+    __slots__ = ["id", "name"]
+    ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
+    id: str
     name: str
-    def __init__(self, name: _Optional[str] = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., name: _Optional[str] = ...) -> None: ...
 
 class UpdateProductInventoryByIdRequest(_message.Message):
     __slots__ = ["product_inventory"]
