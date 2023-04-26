@@ -65,6 +65,11 @@ class OrderServiceStub(object):
                 request_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
                 response_deserializer=order__pb2.CustomerListResponse.FromString,
                 )
+        self.GetCustomersByCreatedBy = channel.unary_unary(
+                '/order.OrderService/GetCustomersByCreatedBy',
+                request_serializer=order__pb2.GetCustomersByCreatedByRequest.SerializeToString,
+                response_deserializer=order__pb2.GetCustomersByCreatedByResponse.FromString,
+                )
 
 
 class OrderServiceServicer(object):
@@ -130,6 +135,12 @@ class OrderServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetCustomersByCreatedBy(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_OrderServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -182,6 +193,11 @@ def add_OrderServiceServicer_to_server(servicer, server):
                     servicer.GetAllCustomers,
                     request_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                     response_serializer=order__pb2.CustomerListResponse.SerializeToString,
+            ),
+            'GetCustomersByCreatedBy': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetCustomersByCreatedBy,
+                    request_deserializer=order__pb2.GetCustomersByCreatedByRequest.FromString,
+                    response_serializer=order__pb2.GetCustomersByCreatedByResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -360,5 +376,22 @@ class OrderService(object):
         return grpc.experimental.unary_unary(request, target, '/order.OrderService/GetAllCustomers',
             google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             order__pb2.CustomerListResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetCustomersByCreatedBy(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/order.OrderService/GetCustomersByCreatedBy',
+            order__pb2.GetCustomersByCreatedByRequest.SerializeToString,
+            order__pb2.GetCustomersByCreatedByResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

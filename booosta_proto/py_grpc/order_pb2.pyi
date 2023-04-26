@@ -37,6 +37,18 @@ class GetCustomerByIdResponse(_message.Message):
     customer: Customer
     def __init__(self, customer: _Optional[_Union[Customer, _Mapping]] = ...) -> None: ...
 
+class GetCustomersByCreatedByRequest(_message.Message):
+    __slots__ = ["created_by_id"]
+    CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
+    created_by_id: str
+    def __init__(self, created_by_id: _Optional[str] = ...) -> None: ...
+
+class GetCustomersByCreatedByResponse(_message.Message):
+    __slots__ = ["customers"]
+    CUSTOMERS_FIELD_NUMBER: _ClassVar[int]
+    customers: _containers.RepeatedCompositeFieldContainer[Customer]
+    def __init__(self, customers: _Optional[_Iterable[_Union[Customer, _Mapping]]] = ...) -> None: ...
+
 class GetOrderByCreatedByIdAndPaymentTypeRequest(_message.Message):
     __slots__ = ["created_by_id", "payment_type"]
     CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
