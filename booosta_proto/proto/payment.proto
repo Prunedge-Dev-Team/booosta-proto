@@ -1,0 +1,82 @@
+syntax = "proto3";
+package payment;
+
+service PaymentService {
+    rpc CreateDVA(CreateDVARequest) returns (CreateDVAResponse) {}
+    rpc ResolveAccountNumber(ResolveAccountNumberRequest) returns (ResolveAccountResponse) {}
+    rpc VerifyBVN(VerifyBVNRequest) returns (VerifyBVNResponse) {}
+    rpc FetchCustomerDVA(FetchCustomerDVARequest) returns (FetchCustomerDVAResponse) {}
+    rpc RequeryVDA(RequeryVDARequest) returns (CreateDVAResponse) {}
+}
+
+message CreateDVARequest {
+    string email = 1;
+    string first_name = 2;
+    string middle_name = 3;
+    string last_name = 4;
+    string phone = 5;
+    string account_number = 6;
+    string bvn = 7;
+    string bank_code = 8;
+}
+
+message CreateDVAResponse { 
+    bool status = 1;
+    string message = 2;
+}
+
+message ResolveAccountNumberRequest {
+    string account_number = 1;
+    string bank_code = 2;
+}
+
+message ResolveAccountResponse {
+    bool status = 1;
+    string message = 2;
+    string account_number = 3;
+    string account_name = 4;
+    string bank_id = 5;
+}
+
+message VerifyBVNRequest {
+    string bvn = 1;
+    string account_number = 2;
+    string bank_code = 3;
+    string first_name = 4;
+    string last_name = 5;
+    string middle_name = 6;
+}
+
+message VerifyBVNResponse {
+    bool status = 1;
+    string message = 2;
+    string bvn = 3;
+    bool is_blacklisted = 4;
+    bool account_number = 5;
+    bool first_name = 6;
+    bool middle_name = 7;
+    bool last_name = 8;
+}
+
+message FetchCustomerDVARequest {
+    string email_or_phone = 1;
+}
+
+message FetchCustomerDVAResponse {
+    string bank_name = 1;
+    string bank_id = 2;
+    string bank_slug = 3;
+    string id = 4;
+    string account_name = 5;
+    string account_number = 6;
+    string currency = 7;
+    bool active = 8;
+    bool assigned = 9;
+    bool status = 10;
+}
+
+message RequeryVDARequest {
+    string account_number = 1;
+    string provider_slug = 2;
+    string txn_date = 3;
+}
