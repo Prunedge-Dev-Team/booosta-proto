@@ -114,8 +114,8 @@ class Retailer(_message.Message):
     IS_BLACKLISTED_FIELD_NUMBER: _ClassVar[int]
     IS_VALIDATED_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
-    account_number: int
-    bank_code: int
+    account_number: str
+    bank_code: str
     business_name: str
     business_type: str
     category: str
@@ -124,4 +124,4 @@ class Retailer(_message.Message):
     is_blacklisted: bool
     is_validated: bool
     user_id: str
-    def __init__(self, id: _Optional[str] = ..., user_id: _Optional[str] = ..., business_name: _Optional[str] = ..., business_type: _Optional[str] = ..., category: _Optional[str] = ..., classification: _Optional[str] = ..., account_number: _Optional[int] = ..., bank_code: _Optional[int] = ..., is_validated: bool = ..., is_blacklisted: bool = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., user_id: _Optional[str] = ..., business_name: _Optional[str] = ..., business_type: _Optional[str] = ..., category: _Optional[str] = ..., classification: _Optional[str] = ..., account_number: _Optional[str] = ..., bank_code: _Optional[str] = ..., is_validated: bool = ..., is_blacklisted: bool = ...) -> None: ...
