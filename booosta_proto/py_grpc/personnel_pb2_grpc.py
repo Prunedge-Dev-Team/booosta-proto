@@ -29,10 +29,10 @@ class PersonnelServiceStub(object):
                 request_serializer=personnel__pb2.GetAggregatorByUserIdRequest.SerializeToString,
                 response_deserializer=personnel__pb2.GetAggregatorByUserIdResponse.FromString,
                 )
-        self.GetDeviceTerminalIdByRetailerId = channel.unary_unary(
-                '/personnel.PersonnelService/GetDeviceTerminalIdByRetailerId',
-                request_serializer=personnel__pb2.GetDeviceTerminalIdByRetailerIdRequest.SerializeToString,
-                response_deserializer=personnel__pb2.GetDeviceTerminalIdByRetailerIdResponse.FromString,
+        self.GetDeviceTerminalIdByUserId = channel.unary_unary(
+                '/personnel.PersonnelService/GetDeviceTerminalIdByUserId',
+                request_serializer=personnel__pb2.GetDeviceTerminalIdByUserIdRequest.SerializeToString,
+                response_deserializer=personnel__pb2.GetDeviceTerminalIdByUserIdResponse.FromString,
                 )
 
 
@@ -57,7 +57,7 @@ class PersonnelServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetDeviceTerminalIdByRetailerId(self, request, context):
+    def GetDeviceTerminalIdByUserId(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -81,10 +81,10 @@ def add_PersonnelServiceServicer_to_server(servicer, server):
                     request_deserializer=personnel__pb2.GetAggregatorByUserIdRequest.FromString,
                     response_serializer=personnel__pb2.GetAggregatorByUserIdResponse.SerializeToString,
             ),
-            'GetDeviceTerminalIdByRetailerId': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetDeviceTerminalIdByRetailerId,
-                    request_deserializer=personnel__pb2.GetDeviceTerminalIdByRetailerIdRequest.FromString,
-                    response_serializer=personnel__pb2.GetDeviceTerminalIdByRetailerIdResponse.SerializeToString,
+            'GetDeviceTerminalIdByUserId': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetDeviceTerminalIdByUserId,
+                    request_deserializer=personnel__pb2.GetDeviceTerminalIdByUserIdRequest.FromString,
+                    response_serializer=personnel__pb2.GetDeviceTerminalIdByUserIdResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -148,7 +148,7 @@ class PersonnelService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetDeviceTerminalIdByRetailerId(request,
+    def GetDeviceTerminalIdByUserId(request,
             target,
             options=(),
             channel_credentials=None,
@@ -158,8 +158,8 @@ class PersonnelService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/personnel.PersonnelService/GetDeviceTerminalIdByRetailerId',
-            personnel__pb2.GetDeviceTerminalIdByRetailerIdRequest.SerializeToString,
-            personnel__pb2.GetDeviceTerminalIdByRetailerIdResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/personnel.PersonnelService/GetDeviceTerminalIdByUserId',
+            personnel__pb2.GetDeviceTerminalIdByUserIdRequest.SerializeToString,
+            personnel__pb2.GetDeviceTerminalIdByUserIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
