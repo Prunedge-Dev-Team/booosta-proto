@@ -107,6 +107,12 @@ class GetOrderItemsByCreatedByIdRequest(_message.Message):
     created_by_id: str
     def __init__(self, created_by_id: _Optional[str] = ...) -> None: ...
 
+class GetOrderItemsByOrderIdRequest(_message.Message):
+    __slots__ = ["order_id"]
+    ORDER_ID_FIELD_NUMBER: _ClassVar[int]
+    order_id: str
+    def __init__(self, order_id: _Optional[str] = ...) -> None: ...
+
 class GetOrderItemsByProductIdAndCreatedByIdRequest(_message.Message):
     __slots__ = ["created_by_id", "product_id"]
     CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]

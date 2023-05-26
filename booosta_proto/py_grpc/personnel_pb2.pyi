@@ -34,6 +34,26 @@ class Aggregator(_message.Message):
     user_id: str
     def __init__(self, id: _Optional[str] = ..., user_id: _Optional[str] = ..., business_information: _Optional[str] = ..., company_type: _Optional[str] = ..., company_size: _Optional[str] = ..., estimated_customer_base: _Optional[str] = ..., aggregator_code: _Optional[str] = ..., contact_name: _Optional[str] = ...) -> None: ...
 
+class Device(_message.Message):
+    __slots__ = ["closest_landmark", "delivery_address", "device_id", "id", "price", "retailer_id", "state", "status"]
+    CLOSEST_LANDMARK_FIELD_NUMBER: _ClassVar[int]
+    DELIVERY_ADDRESS_FIELD_NUMBER: _ClassVar[int]
+    DEVICE_ID_FIELD_NUMBER: _ClassVar[int]
+    ID_FIELD_NUMBER: _ClassVar[int]
+    PRICE_FIELD_NUMBER: _ClassVar[int]
+    RETAILER_ID_FIELD_NUMBER: _ClassVar[int]
+    STATE_FIELD_NUMBER: _ClassVar[int]
+    STATUS_FIELD_NUMBER: _ClassVar[int]
+    closest_landmark: str
+    delivery_address: str
+    device_id: str
+    id: str
+    price: float
+    retailer_id: str
+    state: str
+    status: str
+    def __init__(self, id: _Optional[str] = ..., retailer_id: _Optional[str] = ..., device_id: _Optional[str] = ..., price: _Optional[float] = ..., state: _Optional[str] = ..., status: _Optional[str] = ..., delivery_address: _Optional[str] = ..., closest_landmark: _Optional[str] = ...) -> None: ...
+
 class GetAgentByUserIdRequest(_message.Message):
     __slots__ = ["id"]
     ID_FIELD_NUMBER: _ClassVar[int]
@@ -57,6 +77,18 @@ class GetAggregatorByUserIdResponse(_message.Message):
     AGGREGATOR_FIELD_NUMBER: _ClassVar[int]
     aggregator: Aggregator
     def __init__(self, aggregator: _Optional[_Union[Aggregator, _Mapping]] = ...) -> None: ...
+
+class GetDeviceTerminalIdByRetailerIdRequest(_message.Message):
+    __slots__ = ["retailer_id"]
+    RETAILER_ID_FIELD_NUMBER: _ClassVar[int]
+    retailer_id: str
+    def __init__(self, retailer_id: _Optional[str] = ...) -> None: ...
+
+class GetDeviceTerminalIdByRetailerIdResponse(_message.Message):
+    __slots__ = ["device_id"]
+    DEVICE_ID_FIELD_NUMBER: _ClassVar[int]
+    device_id: str
+    def __init__(self, device_id: _Optional[str] = ...) -> None: ...
 
 class GetRetailerByUserIdRequest(_message.Message):
     __slots__ = ["id"]

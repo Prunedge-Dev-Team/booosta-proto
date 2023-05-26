@@ -15,6 +15,7 @@ service OrderService {
     rpc GetAllOrderItems(google.protobuf.Empty) returns (OrderItemsListResponse) {}
     rpc GetAllCustomers(google.protobuf.Empty) returns (CustomerListResponse) {}
     rpc GetCustomersByCreatedBy(GetCustomersByCreatedByRequest) returns (GetCustomersByCreatedByResponse) {}
+    rpc GetOrderItemsByOrderId(GetOrderItemsByOrderIdRequest) returns (OrderItemsListResponse) {}
 }
 
 
@@ -74,6 +75,10 @@ message GetOrderItemByIdResponse {
 
 message GetOrderItemsByProductIdRequest {
     string product_id = 1;
+}
+
+message GetOrderItemsByOrderIdRequest {
+    string order_id = 1;
 }
 
 message GetOrderItemsByProductIdAndCreatedByIdRequest {

@@ -5,6 +5,7 @@ service PersonnelService {
     rpc GetRetailerByUserId(GetRetailerByUserIdRequest) returns (GetRetailerByUserIdResponse) {}
     rpc GetAgentByUserId(GetAgentByUserIdRequest) returns (GetAgentByUserIdResponse) {}
     rpc GetAggregatorByUserId(GetAggregatorByUserIdRequest) returns (GetAggregatorByUserIdResponse) {}
+    rpc GetDeviceTerminalIdByRetailerId(GetDeviceTerminalIdByRetailerIdRequest) returns (GetDeviceTerminalIdByRetailerIdResponse) {}
 }
 
 message Retailer {
@@ -55,4 +56,23 @@ message GetAggregatorByUserIdRequest{
 
 message GetAggregatorByUserIdResponse{
     Aggregator aggregator = 1;
+}
+
+message Device{
+    string id = 1; 
+    string retailer_id = 2;
+    string device_id = 3;
+    float price = 4;
+    string state = 5;
+    string status = 6;
+    string delivery_address = 7;
+    string closest_landmark = 8;
+}
+
+message GetDeviceTerminalIdByRetailerIdRequest {
+    string retailer_id = 1;
+}
+
+message GetDeviceTerminalIdByRetailerIdResponse {
+    string device_id = 1;
 }
