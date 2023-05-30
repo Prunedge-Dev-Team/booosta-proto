@@ -125,3 +125,15 @@ class Retailer(_message.Message):
     is_validated: bool
     user_id: str
     def __init__(self, id: _Optional[str] = ..., user_id: _Optional[str] = ..., business_name: _Optional[str] = ..., business_type: _Optional[str] = ..., category: _Optional[str] = ..., classification: _Optional[str] = ..., account_number: _Optional[str] = ..., bank_code: _Optional[str] = ..., is_validated: bool = ..., is_blacklisted: bool = ...) -> None: ...
+
+class UpdateRetailerByUserIdRequest(_message.Message):
+    __slots__ = ["retailer"]
+    RETAILER_FIELD_NUMBER: _ClassVar[int]
+    retailer: Retailer
+    def __init__(self, retailer: _Optional[_Union[Retailer, _Mapping]] = ...) -> None: ...
+
+class UpdateRetailerByUserIdResponse(_message.Message):
+    __slots__ = ["retailer"]
+    RETAILER_FIELD_NUMBER: _ClassVar[int]
+    retailer: Retailer
+    def __init__(self, retailer: _Optional[_Union[Retailer, _Mapping]] = ...) -> None: ...
