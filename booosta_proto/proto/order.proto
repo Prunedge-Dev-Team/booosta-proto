@@ -34,6 +34,7 @@ message Order {
     google.protobuf.Timestamp sales_date = 12;
     string transaction_id = 13;
     string created_by_id = 14;
+    string status = 15;
 }
 
 message OrderItem {
@@ -49,7 +50,6 @@ message OrderItem {
 
 message GetOrderByIdRequest {
     string id = 1;
-    string payment_type = 2;
 }
 
 message GetOrderByCreatedByIdAndPaymentTypeRequest {
