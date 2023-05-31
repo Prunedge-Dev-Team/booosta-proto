@@ -1,4 +1,3 @@
-from google.protobuf import timestamp_pb2 as _timestamp_pb2
 from google.protobuf import empty_pb2 as _empty_pb2
 from google.protobuf.internal import containers as _containers
 from google.protobuf import descriptor as _descriptor
@@ -126,38 +125,34 @@ class GetOrderItemsByProductIdRequest(_message.Message):
     def __init__(self, product_id: _Optional[str] = ...) -> None: ...
 
 class Order(_message.Message):
-    __slots__ = ["amount_payment", "balance", "balance_due_date", "created_by_id", "customer_id", "discount", "grand_total", "payment_date", "payment_option", "payment_type", "sales_date", "shipping_fee", "status", "total_price", "transaction_id"]
+    __slots__ = ["amount_payment", "balance", "created_by_id", "customer_id", "discount", "grand_total", "id", "payment_option", "payment_type", "shipping_fee", "status", "total_price", "transaction_id"]
     AMOUNT_PAYMENT_FIELD_NUMBER: _ClassVar[int]
-    BALANCE_DUE_DATE_FIELD_NUMBER: _ClassVar[int]
     BALANCE_FIELD_NUMBER: _ClassVar[int]
     CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
     CUSTOMER_ID_FIELD_NUMBER: _ClassVar[int]
     DISCOUNT_FIELD_NUMBER: _ClassVar[int]
     GRAND_TOTAL_FIELD_NUMBER: _ClassVar[int]
-    PAYMENT_DATE_FIELD_NUMBER: _ClassVar[int]
+    ID_FIELD_NUMBER: _ClassVar[int]
     PAYMENT_OPTION_FIELD_NUMBER: _ClassVar[int]
     PAYMENT_TYPE_FIELD_NUMBER: _ClassVar[int]
-    SALES_DATE_FIELD_NUMBER: _ClassVar[int]
     SHIPPING_FEE_FIELD_NUMBER: _ClassVar[int]
     STATUS_FIELD_NUMBER: _ClassVar[int]
     TOTAL_PRICE_FIELD_NUMBER: _ClassVar[int]
     TRANSACTION_ID_FIELD_NUMBER: _ClassVar[int]
     amount_payment: float
     balance: float
-    balance_due_date: _timestamp_pb2.Timestamp
     created_by_id: str
     customer_id: str
     discount: float
     grand_total: float
-    payment_date: _timestamp_pb2.Timestamp
+    id: str
     payment_option: str
     payment_type: str
-    sales_date: _timestamp_pb2.Timestamp
     shipping_fee: float
     status: str
     total_price: float
     transaction_id: str
-    def __init__(self, customer_id: _Optional[str] = ..., payment_type: _Optional[str] = ..., payment_option: _Optional[str] = ..., amount_payment: _Optional[float] = ..., shipping_fee: _Optional[float] = ..., balance: _Optional[float] = ..., total_price: _Optional[float] = ..., payment_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., balance_due_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., discount: _Optional[float] = ..., grand_total: _Optional[float] = ..., sales_date: _Optional[_Union[_timestamp_pb2.Timestamp, _Mapping]] = ..., transaction_id: _Optional[str] = ..., created_by_id: _Optional[str] = ..., status: _Optional[str] = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., customer_id: _Optional[str] = ..., payment_type: _Optional[str] = ..., payment_option: _Optional[str] = ..., amount_payment: _Optional[float] = ..., shipping_fee: _Optional[float] = ..., balance: _Optional[float] = ..., total_price: _Optional[float] = ..., discount: _Optional[float] = ..., grand_total: _Optional[float] = ..., transaction_id: _Optional[str] = ..., created_by_id: _Optional[str] = ..., status: _Optional[str] = ...) -> None: ...
 
 class OrderItem(_message.Message):
     __slots__ = ["created_by_id", "discount_selling_price", "order_id", "product_cost_price", "product_id", "quantity", "selling_price", "total_price"]
@@ -184,3 +179,15 @@ class OrderItemsListResponse(_message.Message):
     ORDER_ITEM_FIELD_NUMBER: _ClassVar[int]
     order_item: _containers.RepeatedCompositeFieldContainer[OrderItem]
     def __init__(self, order_item: _Optional[_Iterable[_Union[OrderItem, _Mapping]]] = ...) -> None: ...
+
+class UpdateOrderByIdRequest(_message.Message):
+    __slots__ = ["order"]
+    ORDER_FIELD_NUMBER: _ClassVar[int]
+    order: Order
+    def __init__(self, order: _Optional[_Union[Order, _Mapping]] = ...) -> None: ...
+
+class UpdateOrderByIdResponse(_message.Message):
+    __slots__ = ["order"]
+    ORDER_FIELD_NUMBER: _ClassVar[int]
+    order: Order
+    def __init__(self, order: _Optional[_Union[Order, _Mapping]] = ...) -> None: ...
