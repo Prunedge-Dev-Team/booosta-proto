@@ -1,6 +1,5 @@
 syntax = "proto3";
 package order;
-import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
 
 service OrderService {
@@ -16,25 +15,23 @@ service OrderService {
     rpc GetAllCustomers(google.protobuf.Empty) returns (CustomerListResponse) {}
     rpc GetCustomersByCreatedBy(GetCustomersByCreatedByRequest) returns (GetCustomersByCreatedByResponse) {}
     rpc GetOrderItemsByOrderId(GetOrderItemsByOrderIdRequest) returns (OrderItemsListResponse) {}
+    rpc UpdateOrderById(UpdateOrderByIdRequest) returns (UpdateOrderByIdResponse) {}
 }
 
-
 message Order {
-    string customer_id = 1;
-    string payment_type = 2;
-    string payment_option = 3;
-    float amount_payment = 4;
-    float shipping_fee = 5;
-    float balance = 6;
-    float total_price = 7;
-    google.protobuf.Timestamp payment_date = 8;
-    google.protobuf.Timestamp balance_due_date = 9;
-    float discount = 10;
-    float grand_total = 11;
-    google.protobuf.Timestamp sales_date = 12;
-    string transaction_id = 13;
-    string created_by_id = 14;
-    string status = 15;
+    string id = 1;
+    string customer_id = 2;
+    string payment_type = 3;
+    string payment_option = 4;
+    float amount_payment = 5;
+    float shipping_fee = 6;
+    float balance = 7;
+    float total_price = 8;
+    float discount = 9;
+    float grand_total = 10;
+    string transaction_id = 11;
+    string created_by_id = 12;
+    string status = 13;
 }
 
 message OrderItem {
@@ -127,4 +124,12 @@ message GetCustomersByCreatedByRequest{
 
 message GetCustomersByCreatedByResponse{
     repeated Customer customers = 1;
+}
+
+message UpdateOrderByIdRequest{
+    Order order = 1;
+}
+
+message UpdateOrderByIdResponse{
+    Order order = 1;
 }
