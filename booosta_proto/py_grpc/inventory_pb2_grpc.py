@@ -55,9 +55,9 @@ class InventoryServiceStub(object):
                 request_serializer=inventory__pb2.UpdateProductInventoryByIdRequest.SerializeToString,
                 response_deserializer=inventory__pb2.UpdateProductInventoryByIdResponse.FromString,
                 )
-        self.RemoveProductInventoryById = channel.unary_unary(
-                '/inventory.InventoryService/RemoveProductInventoryById',
-                request_serializer=inventory__pb2.RemoveProductInventoryByIdRequest.SerializeToString,
+        self.RemoveProductInventoryFromCartById = channel.unary_unary(
+                '/inventory.InventoryService/RemoveProductInventoryFromCartById',
+                request_serializer=inventory__pb2.RemoveProductInventoryFromCartByIdRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 )
 
@@ -113,7 +113,7 @@ class InventoryServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def RemoveProductInventoryById(self, request, context):
+    def RemoveProductInventoryFromCartById(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -162,9 +162,9 @@ def add_InventoryServiceServicer_to_server(servicer, server):
                     request_deserializer=inventory__pb2.UpdateProductInventoryByIdRequest.FromString,
                     response_serializer=inventory__pb2.UpdateProductInventoryByIdResponse.SerializeToString,
             ),
-            'RemoveProductInventoryById': grpc.unary_unary_rpc_method_handler(
-                    servicer.RemoveProductInventoryById,
-                    request_deserializer=inventory__pb2.RemoveProductInventoryByIdRequest.FromString,
+            'RemoveProductInventoryFromCartById': grpc.unary_unary_rpc_method_handler(
+                    servicer.RemoveProductInventoryFromCartById,
+                    request_deserializer=inventory__pb2.RemoveProductInventoryFromCartByIdRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
     }
@@ -314,7 +314,7 @@ class InventoryService(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def RemoveProductInventoryById(request,
+    def RemoveProductInventoryFromCartById(request,
             target,
             options=(),
             channel_credentials=None,
@@ -324,8 +324,8 @@ class InventoryService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/inventory.InventoryService/RemoveProductInventoryById',
-            inventory__pb2.RemoveProductInventoryByIdRequest.SerializeToString,
+        return grpc.experimental.unary_unary(request, target, '/inventory.InventoryService/RemoveProductInventoryFromCartById',
+            inventory__pb2.RemoveProductInventoryFromCartByIdRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

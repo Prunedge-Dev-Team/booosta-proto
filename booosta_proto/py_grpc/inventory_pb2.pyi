@@ -145,7 +145,7 @@ class ProductInventoryListResponse(_message.Message):
     product_inventory: _containers.RepeatedCompositeFieldContainer[ProductInventory]
     def __init__(self, product_inventory: _Optional[_Iterable[_Union[ProductInventory, _Mapping]]] = ...) -> None: ...
 
-class RemoveProductInventoryByIdRequest(_message.Message):
+class RemoveProductInventoryFromCartByIdRequest(_message.Message):
     __slots__ = ["id"]
     ID_FIELD_NUMBER: _ClassVar[int]
     id: str

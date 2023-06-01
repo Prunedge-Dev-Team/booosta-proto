@@ -12,7 +12,7 @@ service InventoryService {
     rpc GetAllProductInventories(google.protobuf.Empty) returns (ProductInventoryListResponse) {}
     rpc ChangeProductInventoryCount(ChangeProductInventoryCountRequest) returns (GetProductInventoryByIdResponse) {}
     rpc UpdateProductInventoryById(UpdateProductInventoryByIdRequest) returns (UpdateProductInventoryByIdResponse) {}
-    rpc RemoveProductInventoryById(RemoveProductInventoryByIdRequest) returns (google.protobuf.Empty) {}
+    rpc RemoveProductInventoryFromCartById(RemoveProductInventoryFromCartByIdRequest) returns (google.protobuf.Empty) {}
 }
 
 
@@ -110,6 +110,6 @@ message UpdateProductInventoryByIdResponse {
     ProductInventory product_inventory = 1;
 }
 
-message RemoveProductInventoryByIdRequest {
+message RemoveProductInventoryFromCartByIdRequest {
     string id = 1; 
 }
