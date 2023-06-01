@@ -103,11 +103,12 @@ class GetRetailerByUserIdResponse(_message.Message):
     def __init__(self, retailer: _Optional[_Union[Retailer, _Mapping]] = ...) -> None: ...
 
 class Retailer(_message.Message):
-    __slots__ = ["account_number", "bank_code", "business_name", "business_type", "category", "classification", "id", "is_blacklisted", "is_validated", "user_id"]
+    __slots__ = ["account_number", "bank_code", "business_name", "business_type", "bvn", "category", "classification", "id", "is_blacklisted", "is_validated", "user_id"]
     ACCOUNT_NUMBER_FIELD_NUMBER: _ClassVar[int]
     BANK_CODE_FIELD_NUMBER: _ClassVar[int]
     BUSINESS_NAME_FIELD_NUMBER: _ClassVar[int]
     BUSINESS_TYPE_FIELD_NUMBER: _ClassVar[int]
+    BVN_FIELD_NUMBER: _ClassVar[int]
     CATEGORY_FIELD_NUMBER: _ClassVar[int]
     CLASSIFICATION_FIELD_NUMBER: _ClassVar[int]
     ID_FIELD_NUMBER: _ClassVar[int]
@@ -118,13 +119,14 @@ class Retailer(_message.Message):
     bank_code: str
     business_name: str
     business_type: str
+    bvn: str
     category: str
     classification: str
     id: str
     is_blacklisted: bool
     is_validated: bool
     user_id: str
-    def __init__(self, id: _Optional[str] = ..., user_id: _Optional[str] = ..., business_name: _Optional[str] = ..., business_type: _Optional[str] = ..., category: _Optional[str] = ..., classification: _Optional[str] = ..., account_number: _Optional[str] = ..., bank_code: _Optional[str] = ..., is_validated: bool = ..., is_blacklisted: bool = ...) -> None: ...
+    def __init__(self, id: _Optional[str] = ..., user_id: _Optional[str] = ..., business_name: _Optional[str] = ..., business_type: _Optional[str] = ..., category: _Optional[str] = ..., classification: _Optional[str] = ..., account_number: _Optional[str] = ..., bank_code: _Optional[str] = ..., bvn: _Optional[str] = ..., is_validated: bool = ..., is_blacklisted: bool = ...) -> None: ...
 
 class UpdateRetailerByUserIdRequest(_message.Message):
     __slots__ = ["retailer"]
