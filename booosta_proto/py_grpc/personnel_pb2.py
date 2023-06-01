@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0fpersonnel.proto\x12\tpersonnel\"\xd8\x01\n\x08Retailer\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x15\n\rbusiness_name\x18\x03 \x01(\t\x12\x15\n\rbusiness_type\x18\x04 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x05 \x01(\t\x12\x16\n\x0e\x63lassification\x18\x06 \x01(\t\x12\x16\n\x0e\x61\x63\x63ount_number\x18\x07 \x01(\t\x12\x11\n\tbank_code\x18\x08 \x01(\t\x12\x14\n\x0cis_validated\x18\t \x01(\x08\x12\x16\n\x0eis_blacklisted\x18\n \x01(\x08\"(\n\x1aGetRetailerByUserIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"D\n\x1bGetRetailerByUserIdResponse\x12%\n\x08retailer\x18\x01 \x01(\x0b\x32\x13.personnel.Retailer\"B\n\x05\x41gent\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x1c\n\x14\x62usiness_information\x18\x03 \x01(\t\"%\n\x17GetAgentByUserIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\";\n\x18GetAgentByUserIdResponse\x12\x1f\n\x05\x61gent\x18\x01 \x01(\x0b\x32\x10.personnel.Agent\"\xc3\x01\n\nAggregator\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x1c\n\x14\x62usiness_information\x18\x03 \x01(\t\x12\x14\n\x0c\x63ompany_type\x18\x04 \x01(\t\x12\x14\n\x0c\x63ompany_size\x18\x05 \x01(\t\x12\x1f\n\x17\x65stimated_customer_base\x18\x06 \x01(\t\x12\x17\n\x0f\x61ggregator_code\x18\x07 \x01(\t\x12\x14\n\x0c\x63ontact_name\x18\x08 \x01(\t\"*\n\x1cGetAggregatorByUserIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"J\n\x1dGetAggregatorByUserIdResponse\x12)\n\naggregator\x18\x01 \x01(\x0b\x32\x15.personnel.Aggregator\"\x9a\x01\n\x06\x44\x65vice\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x11\n\tdevice_id\x18\x03 \x01(\t\x12\r\n\x05price\x18\x04 \x01(\x02\x12\r\n\x05state\x18\x05 \x01(\t\x12\x0e\n\x06status\x18\x06 \x01(\t\x12\x18\n\x10\x64\x65livery_address\x18\x07 \x01(\t\x12\x18\n\x10\x63losest_landmark\x18\x08 \x01(\t\"5\n\"GetDeviceTerminalIdByUserIdRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\t\"8\n#GetDeviceTerminalIdByUserIdResponse\x12\x11\n\tdevice_id\x18\x01 \x01(\t\"F\n\x1dUpdateRetailerByUserIdRequest\x12%\n\x08retailer\x18\x01 \x01(\x0b\x32\x13.personnel.Retailer\"G\n\x1eUpdateRetailerByUserIdResponse\x12%\n\x08retailer\x18\x01 \x01(\x0b\x32\x13.personnel.Retailer2\xb8\x04\n\x10PersonnelService\x12\x66\n\x13GetRetailerByUserId\x12%.personnel.GetRetailerByUserIdRequest\x1a&.personnel.GetRetailerByUserIdResponse\"\x00\x12]\n\x10GetAgentByUserId\x12\".personnel.GetAgentByUserIdRequest\x1a#.personnel.GetAgentByUserIdResponse\"\x00\x12l\n\x15GetAggregatorByUserId\x12\'.personnel.GetAggregatorByUserIdRequest\x1a(.personnel.GetAggregatorByUserIdResponse\"\x00\x12~\n\x1bGetDeviceTerminalIdByUserId\x12-.personnel.GetDeviceTerminalIdByUserIdRequest\x1a..personnel.GetDeviceTerminalIdByUserIdResponse\"\x00\x12o\n\x16UpdateRetailerByUserId\x12(.personnel.UpdateRetailerByUserIdRequest\x1a).personnel.UpdateRetailerByUserIdResponse\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0fpersonnel.proto\x12\tpersonnel\"\xe5\x01\n\x08Retailer\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x15\n\rbusiness_name\x18\x03 \x01(\t\x12\x15\n\rbusiness_type\x18\x04 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x05 \x01(\t\x12\x16\n\x0e\x63lassification\x18\x06 \x01(\t\x12\x16\n\x0e\x61\x63\x63ount_number\x18\x07 \x01(\t\x12\x11\n\tbank_code\x18\x08 \x01(\t\x12\x0b\n\x03\x62vn\x18\t \x01(\t\x12\x14\n\x0cis_validated\x18\n \x01(\x08\x12\x16\n\x0eis_blacklisted\x18\x0b \x01(\x08\"(\n\x1aGetRetailerByUserIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"D\n\x1bGetRetailerByUserIdResponse\x12%\n\x08retailer\x18\x01 \x01(\x0b\x32\x13.personnel.Retailer\"B\n\x05\x41gent\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x1c\n\x14\x62usiness_information\x18\x03 \x01(\t\"%\n\x17GetAgentByUserIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\";\n\x18GetAgentByUserIdResponse\x12\x1f\n\x05\x61gent\x18\x01 \x01(\x0b\x32\x10.personnel.Agent\"\xc3\x01\n\nAggregator\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x1c\n\x14\x62usiness_information\x18\x03 \x01(\t\x12\x14\n\x0c\x63ompany_type\x18\x04 \x01(\t\x12\x14\n\x0c\x63ompany_size\x18\x05 \x01(\t\x12\x1f\n\x17\x65stimated_customer_base\x18\x06 \x01(\t\x12\x17\n\x0f\x61ggregator_code\x18\x07 \x01(\t\x12\x14\n\x0c\x63ontact_name\x18\x08 \x01(\t\"*\n\x1cGetAggregatorByUserIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"J\n\x1dGetAggregatorByUserIdResponse\x12)\n\naggregator\x18\x01 \x01(\x0b\x32\x15.personnel.Aggregator\"\x9a\x01\n\x06\x44\x65vice\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0f\n\x07user_id\x18\x02 \x01(\t\x12\x11\n\tdevice_id\x18\x03 \x01(\t\x12\r\n\x05price\x18\x04 \x01(\x02\x12\r\n\x05state\x18\x05 \x01(\t\x12\x0e\n\x06status\x18\x06 \x01(\t\x12\x18\n\x10\x64\x65livery_address\x18\x07 \x01(\t\x12\x18\n\x10\x63losest_landmark\x18\x08 \x01(\t\"5\n\"GetDeviceTerminalIdByUserIdRequest\x12\x0f\n\x07user_id\x18\x01 \x01(\t\"8\n#GetDeviceTerminalIdByUserIdResponse\x12\x11\n\tdevice_id\x18\x01 \x01(\t\"F\n\x1dUpdateRetailerByUserIdRequest\x12%\n\x08retailer\x18\x01 \x01(\x0b\x32\x13.personnel.Retailer\"G\n\x1eUpdateRetailerByUserIdResponse\x12%\n\x08retailer\x18\x01 \x01(\x0b\x32\x13.personnel.Retailer2\xb8\x04\n\x10PersonnelService\x12\x66\n\x13GetRetailerByUserId\x12%.personnel.GetRetailerByUserIdRequest\x1a&.personnel.GetRetailerByUserIdResponse\"\x00\x12]\n\x10GetAgentByUserId\x12\".personnel.GetAgentByUserIdRequest\x1a#.personnel.GetAgentByUserIdResponse\"\x00\x12l\n\x15GetAggregatorByUserId\x12\'.personnel.GetAggregatorByUserIdRequest\x1a(.personnel.GetAggregatorByUserIdResponse\"\x00\x12~\n\x1bGetDeviceTerminalIdByUserId\x12-.personnel.GetDeviceTerminalIdByUserIdRequest\x1a..personnel.GetDeviceTerminalIdByUserIdResponse\"\x00\x12o\n\x16UpdateRetailerByUserId\x12(.personnel.UpdateRetailerByUserIdRequest\x1a).personnel.UpdateRetailerByUserIdResponse\"\x00\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'personnel_pb2', globals())
@@ -21,33 +21,33 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   _RETAILER._serialized_start=31
-  _RETAILER._serialized_end=247
-  _GETRETAILERBYUSERIDREQUEST._serialized_start=249
-  _GETRETAILERBYUSERIDREQUEST._serialized_end=289
-  _GETRETAILERBYUSERIDRESPONSE._serialized_start=291
-  _GETRETAILERBYUSERIDRESPONSE._serialized_end=359
-  _AGENT._serialized_start=361
-  _AGENT._serialized_end=427
-  _GETAGENTBYUSERIDREQUEST._serialized_start=429
-  _GETAGENTBYUSERIDREQUEST._serialized_end=466
-  _GETAGENTBYUSERIDRESPONSE._serialized_start=468
-  _GETAGENTBYUSERIDRESPONSE._serialized_end=527
-  _AGGREGATOR._serialized_start=530
-  _AGGREGATOR._serialized_end=725
-  _GETAGGREGATORBYUSERIDREQUEST._serialized_start=727
-  _GETAGGREGATORBYUSERIDREQUEST._serialized_end=769
-  _GETAGGREGATORBYUSERIDRESPONSE._serialized_start=771
-  _GETAGGREGATORBYUSERIDRESPONSE._serialized_end=845
-  _DEVICE._serialized_start=848
-  _DEVICE._serialized_end=1002
-  _GETDEVICETERMINALIDBYUSERIDREQUEST._serialized_start=1004
-  _GETDEVICETERMINALIDBYUSERIDREQUEST._serialized_end=1057
-  _GETDEVICETERMINALIDBYUSERIDRESPONSE._serialized_start=1059
-  _GETDEVICETERMINALIDBYUSERIDRESPONSE._serialized_end=1115
-  _UPDATERETAILERBYUSERIDREQUEST._serialized_start=1117
-  _UPDATERETAILERBYUSERIDREQUEST._serialized_end=1187
-  _UPDATERETAILERBYUSERIDRESPONSE._serialized_start=1189
-  _UPDATERETAILERBYUSERIDRESPONSE._serialized_end=1260
-  _PERSONNELSERVICE._serialized_start=1263
-  _PERSONNELSERVICE._serialized_end=1831
+  _RETAILER._serialized_end=260
+  _GETRETAILERBYUSERIDREQUEST._serialized_start=262
+  _GETRETAILERBYUSERIDREQUEST._serialized_end=302
+  _GETRETAILERBYUSERIDRESPONSE._serialized_start=304
+  _GETRETAILERBYUSERIDRESPONSE._serialized_end=372
+  _AGENT._serialized_start=374
+  _AGENT._serialized_end=440
+  _GETAGENTBYUSERIDREQUEST._serialized_start=442
+  _GETAGENTBYUSERIDREQUEST._serialized_end=479
+  _GETAGENTBYUSERIDRESPONSE._serialized_start=481
+  _GETAGENTBYUSERIDRESPONSE._serialized_end=540
+  _AGGREGATOR._serialized_start=543
+  _AGGREGATOR._serialized_end=738
+  _GETAGGREGATORBYUSERIDREQUEST._serialized_start=740
+  _GETAGGREGATORBYUSERIDREQUEST._serialized_end=782
+  _GETAGGREGATORBYUSERIDRESPONSE._serialized_start=784
+  _GETAGGREGATORBYUSERIDRESPONSE._serialized_end=858
+  _DEVICE._serialized_start=861
+  _DEVICE._serialized_end=1015
+  _GETDEVICETERMINALIDBYUSERIDREQUEST._serialized_start=1017
+  _GETDEVICETERMINALIDBYUSERIDREQUEST._serialized_end=1070
+  _GETDEVICETERMINALIDBYUSERIDRESPONSE._serialized_start=1072
+  _GETDEVICETERMINALIDBYUSERIDRESPONSE._serialized_end=1128
+  _UPDATERETAILERBYUSERIDREQUEST._serialized_start=1130
+  _UPDATERETAILERBYUSERIDREQUEST._serialized_end=1200
+  _UPDATERETAILERBYUSERIDRESPONSE._serialized_start=1202
+  _UPDATERETAILERBYUSERIDRESPONSE._serialized_end=1273
+  _PERSONNELSERVICE._serialized_start=1276
+  _PERSONNELSERVICE._serialized_end=1844
 # @@protoc_insertion_point(module_scope)

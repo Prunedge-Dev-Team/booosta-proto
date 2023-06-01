@@ -18,8 +18,9 @@ message Retailer {
     string classification = 6;
     string account_number = 7;
     string bank_code = 8;
-    bool is_validated = 9;
-    bool is_blacklisted = 10;
+    string bvn = 9;
+    bool is_validated = 10;
+    bool is_blacklisted = 11;
 }
 
 message GetRetailerByUserIdRequest {
