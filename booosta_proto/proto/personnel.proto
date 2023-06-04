@@ -5,7 +5,7 @@ service PersonnelService {
     rpc GetRetailerByUserId(GetRetailerByUserIdRequest) returns (GetRetailerByUserIdResponse) {}
     rpc GetAgentByUserId(GetAgentByUserIdRequest) returns (GetAgentByUserIdResponse) {}
     rpc GetAggregatorByUserId(GetAggregatorByUserIdRequest) returns (GetAggregatorByUserIdResponse) {}
-    rpc GetDeviceTerminalIdByUserId(GetDeviceTerminalIdByUserIdRequest) returns (GetDeviceTerminalIdByUserIdResponse) {}
+    rpc GetRetailerTerminalByTerminalId(GetRetailerTerminalByTerminalIdRequest) returns (GetRetailerTerminalByTerminalIdResponse) {}
     rpc UpdateRetailerByUserId(UpdateRetailerByUserIdRequest) returns (UpdateRetailerByUserIdResponse) {}
 }
 
@@ -75,12 +75,13 @@ message Device{
     string closest_landmark = 8;
 }
 
-message GetDeviceTerminalIdByUserIdRequest {
+message GetRetailerTerminalByTerminalIdRequest {
     string user_id = 1;
+    string terminal_id = 2;
 }
 
-message GetDeviceTerminalIdByUserIdResponse {
-    string device_id = 1;
+message GetRetailerTerminalByTerminalIdResponse {
+    string terminal = 1;
 }
 
 message UpdateRetailerByUserIdRequest {
