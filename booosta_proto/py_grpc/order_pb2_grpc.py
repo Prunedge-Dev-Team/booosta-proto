@@ -80,6 +80,11 @@ class OrderServiceStub(object):
                 request_serializer=order__pb2.UpdateOrderByIdRequest.SerializeToString,
                 response_deserializer=order__pb2.UpdateOrderByIdResponse.FromString,
                 )
+        self.RemoveProductFromCartByProductId = channel.unary_unary(
+                '/order.OrderService/RemoveProductFromCartByProductId',
+                request_serializer=order__pb2.RemoveProductFromCartByProductIdRequest.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                )
 
 
 class OrderServiceServicer(object):
@@ -163,6 +168,12 @@ class OrderServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def RemoveProductFromCartByProductId(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_OrderServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -230,6 +241,11 @@ def add_OrderServiceServicer_to_server(servicer, server):
                     servicer.UpdateOrderById,
                     request_deserializer=order__pb2.UpdateOrderByIdRequest.FromString,
                     response_serializer=order__pb2.UpdateOrderByIdResponse.SerializeToString,
+            ),
+            'RemoveProductFromCartByProductId': grpc.unary_unary_rpc_method_handler(
+                    servicer.RemoveProductFromCartByProductId,
+                    request_deserializer=order__pb2.RemoveProductFromCartByProductIdRequest.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -459,5 +475,22 @@ class OrderService(object):
         return grpc.experimental.unary_unary(request, target, '/order.OrderService/UpdateOrderById',
             order__pb2.UpdateOrderByIdRequest.SerializeToString,
             order__pb2.UpdateOrderByIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def RemoveProductFromCartByProductId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/order.OrderService/RemoveProductFromCartByProductId',
+            order__pb2.RemoveProductFromCartByProductIdRequest.SerializeToString,
+            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
