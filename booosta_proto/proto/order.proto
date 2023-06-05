@@ -16,6 +16,7 @@ service OrderService {
     rpc GetCustomersByCreatedBy(GetCustomersByCreatedByRequest) returns (GetCustomersByCreatedByResponse) {}
     rpc GetOrderItemsByOrderId(GetOrderItemsByOrderIdRequest) returns (OrderItemsListResponse) {}
     rpc UpdateOrderById(UpdateOrderByIdRequest) returns (UpdateOrderByIdResponse) {}
+    rpc RemoveProductFromCartByProductId(RemoveProductFromCartByProductIdRequest) returns (google.protobuf.Empty) {}
 }
 
 message Order {
@@ -132,4 +133,8 @@ message UpdateOrderByIdRequest{
 
 message UpdateOrderByIdResponse{
     Order order = 1;
+}
+
+message RemoveProductFromCartByProductIdRequest {
+    string product_id = 1;
 }

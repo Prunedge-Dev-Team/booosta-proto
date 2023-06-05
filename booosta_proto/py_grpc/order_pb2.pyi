@@ -180,6 +180,12 @@ class OrderItemsListResponse(_message.Message):
     order_item: _containers.RepeatedCompositeFieldContainer[OrderItem]
     def __init__(self, order_item: _Optional[_Iterable[_Union[OrderItem, _Mapping]]] = ...) -> None: ...
 
+class RemoveProductFromCartByProductIdRequest(_message.Message):
+    __slots__ = ["product_id"]
+    PRODUCT_ID_FIELD_NUMBER: _ClassVar[int]
+    product_id: str
+    def __init__(self, product_id: _Optional[str] = ...) -> None: ...
+
 class UpdateOrderByIdRequest(_message.Message):
     __slots__ = ["order"]
     ORDER_FIELD_NUMBER: _ClassVar[int]
