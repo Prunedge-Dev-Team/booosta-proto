@@ -186,6 +186,12 @@ class RemoveProductFromCartByProductIdRequest(_message.Message):
     product_id: str
     def __init__(self, product_id: _Optional[str] = ...) -> None: ...
 
+class RemoveProductFromCartByProductIdResponse(_message.Message):
+    __slots__ = ["response"]
+    RESPONSE_FIELD_NUMBER: _ClassVar[int]
+    response: str
+    def __init__(self, response: _Optional[str] = ...) -> None: ...
+
 class UpdateOrderByIdRequest(_message.Message):
     __slots__ = ["order"]
     ORDER_FIELD_NUMBER: _ClassVar[int]

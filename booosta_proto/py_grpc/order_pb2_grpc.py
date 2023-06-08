@@ -83,7 +83,7 @@ class OrderServiceStub(object):
         self.RemoveProductFromCartByProductId = channel.unary_unary(
                 '/order.OrderService/RemoveProductFromCartByProductId',
                 request_serializer=order__pb2.RemoveProductFromCartByProductIdRequest.SerializeToString,
-                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                response_deserializer=order__pb2.RemoveProductFromCartByProductIdResponse.FromString,
                 )
 
 
@@ -245,7 +245,7 @@ def add_OrderServiceServicer_to_server(servicer, server):
             'RemoveProductFromCartByProductId': grpc.unary_unary_rpc_method_handler(
                     servicer.RemoveProductFromCartByProductId,
                     request_deserializer=order__pb2.RemoveProductFromCartByProductIdRequest.FromString,
-                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+                    response_serializer=order__pb2.RemoveProductFromCartByProductIdResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -491,6 +491,6 @@ class OrderService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/order.OrderService/RemoveProductFromCartByProductId',
             order__pb2.RemoveProductFromCartByProductIdRequest.SerializeToString,
-            google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            order__pb2.RemoveProductFromCartByProductIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
