@@ -140,5 +140,5 @@ message RemoveProductFromCartByProductIdRequest {
 }
 
 message RemoveProductFromCartByProductIdResponse {
-    string success = 1;
+    string response = 1;
 }
