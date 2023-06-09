@@ -78,18 +78,6 @@ class GetAggregatorByUserIdResponse(_message.Message):
     aggregator: Aggregator
     def __init__(self, aggregator: _Optional[_Union[Aggregator, _Mapping]] = ...) -> None: ...
 
-class GetDeviceTerminalIdByUserIdRequest(_message.Message):
-    __slots__ = ["user_id"]
-    USER_ID_FIELD_NUMBER: _ClassVar[int]
-    user_id: str
-    def __init__(self, user_id: _Optional[str] = ...) -> None: ...
-
-class GetDeviceTerminalIdByUserIdResponse(_message.Message):
-    __slots__ = ["device_id"]
-    DEVICE_ID_FIELD_NUMBER: _ClassVar[int]
-    device_id: str
-    def __init__(self, device_id: _Optional[str] = ...) -> None: ...
-
 class GetRetailerByUserIdRequest(_message.Message):
     __slots__ = ["id"]
     ID_FIELD_NUMBER: _ClassVar[int]
@@ -102,8 +90,22 @@ class GetRetailerByUserIdResponse(_message.Message):
     retailer: Retailer
     def __init__(self, retailer: _Optional[_Union[Retailer, _Mapping]] = ...) -> None: ...
 
+class GetRetailerTerminalByTerminalIdRequest(_message.Message):
+    __slots__ = ["terminal_id", "user_id"]
+    TERMINAL_ID_FIELD_NUMBER: _ClassVar[int]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    terminal_id: str
+    user_id: str
+    def __init__(self, user_id: _Optional[str] = ..., terminal_id: _Optional[str] = ...) -> None: ...
+
+class GetRetailerTerminalByTerminalIdResponse(_message.Message):
+    __slots__ = ["terminal"]
+    TERMINAL_FIELD_NUMBER: _ClassVar[int]
+    terminal: str
+    def __init__(self, terminal: _Optional[str] = ...) -> None: ...
+
 class Retailer(_message.Message):
-    __slots__ = ["account_number", "bank_code", "business_name", "business_type", "bvn", "category", "classification", "id", "is_blacklisted", "is_validated", "user_id"]
+    __slots__ = ["account_number", "bank_code", "business_name", "business_type", "bvn", "category", "classification", "id", "is_blacklisted", "is_validated", "user_id", "wallet_balance"]
     ACCOUNT_NUMBER_FIELD_NUMBER: _ClassVar[int]
     BANK_CODE_FIELD_NUMBER: _ClassVar[int]
     BUSINESS_NAME_FIELD_NUMBER: _ClassVar[int]
@@ -115,6 +117,7 @@ class Retailer(_message.Message):
     IS_BLACKLISTED_FIELD_NUMBER: _ClassVar[int]
     IS_VALIDATED_FIELD_NUMBER: _ClassVar[int]
     USER_ID_FIELD_NUMBER: _ClassVar[int]
+    WALLET_BALANCE_FIELD_NUMBER: _ClassVar[int]
     account_number: str
     bank_code: str
     business_name: str
@@ -126,7 +129,8 @@ class Retailer(_message.Message):
     is_blacklisted: bool
     is_validated: bool
     user_id: str
-    def __init__(self, id: _Optional[str] = ..., user_id: _Optional[str] = ..., business_name: _Optional[str] = ..., business_type: _Optional[str] = ..., category: _Optional[str] = ..., classification: _Optional[str] = ..., account_number: _Optional[str] = ..., bank_code: _Optional[str] = ..., bvn: _Optional[str] = ..., is_validated: bool = ..., is_blacklisted: bool = ...) -> None: ...
+    wallet_balance: float
+    def __init__(self, id: _Optional[str] = ..., user_id: _Optional[str] = ..., business_name: _Optional[str] = ..., business_type: _Optional[str] = ..., category: _Optional[str] = ..., classification: _Optional[str] = ..., account_number: _Optional[str] = ..., bank_code: _Optional[str] = ..., bvn: _Optional[str] = ..., is_validated: bool = ..., is_blacklisted: bool = ..., wallet_balance: _Optional[float] = ...) -> None: ...
 
 class UpdateRetailerByUserIdRequest(_message.Message):
     __slots__ = ["retailer"]
