@@ -10,6 +10,7 @@ service OrderService {
     rpc GetOrderItemQuantityByProductId(GetOrderItemQuantityByProductIdRequest) returns (GetOrderItemQuantityByProductIdResponse) {}
     rpc GetOrderItemsByCreatedById(GetOrderItemsByCreatedByIdRequest) returns (OrderItemsListResponse) {}
     rpc GetOrderByCreatedByIdAndPaymentType(GetOrderByCreatedByIdAndPaymentTypeRequest) returns (GetOrderByCreatedByIdAndPaymentTypeResponse) {}
+    rpc GetOrderByCreatedByIdAndPaymentStatus(GetOrderByCreatedByIdAndPaymentStatusRequest) returns (GetOrderByCreatedByIdAndPaymentStatusResponse) {}
     rpc GetOrderItemsByProductIdAndCreatedById(GetOrderItemsByProductIdAndCreatedByIdRequest) returns (OrderItemsListResponse) {}
     rpc GetAllOrderItems(google.protobuf.Empty) returns (OrderItemsListResponse) {}
     rpc GetAllCustomers(google.protobuf.Empty) returns (CustomerListResponse) {}
@@ -55,6 +56,11 @@ message GetOrderByCreatedByIdAndPaymentTypeRequest {
     string payment_type = 2;
 }
 
+message GetOrderByCreatedByIdAndPaymentStatusRequest {
+    string created_by_id = 1;
+    string status = 2;
+}
+
 message GetOrderItemByIdRequest {
     string id = 1;
 }
@@ -64,6 +70,10 @@ message GetOrderByIdResponse {
 }
 
 message GetOrderByCreatedByIdAndPaymentTypeResponse {
+    repeated Order order = 1;
+}
+
+message GetOrderByCreatedByIdAndPaymentStatusResponse {
     repeated Order order = 1;
 }
 

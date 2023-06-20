@@ -50,6 +50,11 @@ class OrderServiceStub(object):
                 request_serializer=order__pb2.GetOrderByCreatedByIdAndPaymentTypeRequest.SerializeToString,
                 response_deserializer=order__pb2.GetOrderByCreatedByIdAndPaymentTypeResponse.FromString,
                 )
+        self.GetOrderByCreatedByIdAndPaymentStatus = channel.unary_unary(
+                '/order.OrderService/GetOrderByCreatedByIdAndPaymentStatus',
+                request_serializer=order__pb2.GetOrderByCreatedByIdAndPaymentStatusRequest.SerializeToString,
+                response_deserializer=order__pb2.GetOrderByCreatedByIdAndPaymentStatusResponse.FromString,
+                )
         self.GetOrderItemsByProductIdAndCreatedById = channel.unary_unary(
                 '/order.OrderService/GetOrderItemsByProductIdAndCreatedById',
                 request_serializer=order__pb2.GetOrderItemsByProductIdAndCreatedByIdRequest.SerializeToString,
@@ -127,6 +132,12 @@ class OrderServiceServicer(object):
         raise NotImplementedError('Method not implemented!')
 
     def GetOrderByCreatedByIdAndPaymentType(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetOrderByCreatedByIdAndPaymentStatus(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -211,6 +222,11 @@ def add_OrderServiceServicer_to_server(servicer, server):
                     servicer.GetOrderByCreatedByIdAndPaymentType,
                     request_deserializer=order__pb2.GetOrderByCreatedByIdAndPaymentTypeRequest.FromString,
                     response_serializer=order__pb2.GetOrderByCreatedByIdAndPaymentTypeResponse.SerializeToString,
+            ),
+            'GetOrderByCreatedByIdAndPaymentStatus': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetOrderByCreatedByIdAndPaymentStatus,
+                    request_deserializer=order__pb2.GetOrderByCreatedByIdAndPaymentStatusRequest.FromString,
+                    response_serializer=order__pb2.GetOrderByCreatedByIdAndPaymentStatusResponse.SerializeToString,
             ),
             'GetOrderItemsByProductIdAndCreatedById': grpc.unary_unary_rpc_method_handler(
                     servicer.GetOrderItemsByProductIdAndCreatedById,
@@ -373,6 +389,23 @@ class OrderService(object):
         return grpc.experimental.unary_unary(request, target, '/order.OrderService/GetOrderByCreatedByIdAndPaymentType',
             order__pb2.GetOrderByCreatedByIdAndPaymentTypeRequest.SerializeToString,
             order__pb2.GetOrderByCreatedByIdAndPaymentTypeResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetOrderByCreatedByIdAndPaymentStatus(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/order.OrderService/GetOrderByCreatedByIdAndPaymentStatus',
+            order__pb2.GetOrderByCreatedByIdAndPaymentStatusRequest.SerializeToString,
+            order__pb2.GetOrderByCreatedByIdAndPaymentStatusResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
