@@ -22,6 +22,7 @@ message Retailer {
     bool is_validated = 10;
     bool is_blacklisted = 11;
     double wallet_balance = 12;
+    string image = 13;
 }
 
 message GetRetailerByUserIdRequest {
