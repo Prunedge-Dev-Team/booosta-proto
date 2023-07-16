@@ -17,6 +17,8 @@ service OrderService {
     rpc GetOrderItemsByOrderId(GetOrderItemsByOrderIdRequest) returns (OrderItemsListResponse) {}
     rpc UpdateOrderById(UpdateOrderByIdRequest) returns (UpdateOrderByIdResponse) {}
     rpc RemoveProductFromCartByProductId(RemoveProductFromCartByProductIdRequest) returns (RemoveProductFromCartByProductIdResponse) {}
+    rpc GetCustomerDebtById(GetCustomerDebtByIdRequest) returns (GetCustomerDebtByIdResponse) {}
+    rpc UpdateCustomerDebtById(UpdateCustomerDebtByIdRequest) returns (UpdateCustomerDebtByIdResponse) {}
 }
 
 message Order {
@@ -141,4 +143,22 @@ message RemoveProductFromCartByProductIdRequest {
 
 message RemoveProductFromCartByProductIdResponse {
     string response = 1;
+}
+
+message GetCustomerDebtByIdRequest {
+    string customer_id = 1;
+}
+
+message GetCustomerDebtByIdResponse {
+    float debt = 1;
+}
+
+message UpdateCustomerDebtByIdRequest {
+    string customer_id = 1;
+    float amount_paid = 2;
+}
+
+message UpdateCustomerDebtByIdResponse {
+    string customer_id = 1;
+    float debt = 2;
 }

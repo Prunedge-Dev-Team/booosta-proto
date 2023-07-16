@@ -85,6 +85,16 @@ class OrderServiceStub(object):
                 request_serializer=order__pb2.RemoveProductFromCartByProductIdRequest.SerializeToString,
                 response_deserializer=order__pb2.RemoveProductFromCartByProductIdResponse.FromString,
                 )
+        self.GetCustomerDebtById = channel.unary_unary(
+                '/order.OrderService/GetCustomerDebtById',
+                request_serializer=order__pb2.GetCustomerDebtByIdRequest.SerializeToString,
+                response_deserializer=order__pb2.GetCustomerDebtByIdResponse.FromString,
+                )
+        self.UpdateCustomerDebtById = channel.unary_unary(
+                '/order.OrderService/UpdateCustomerDebtById',
+                request_serializer=order__pb2.UpdateCustomerDebtByIdRequest.SerializeToString,
+                response_deserializer=order__pb2.UpdateCustomerDebtByIdResponse.FromString,
+                )
 
 
 class OrderServiceServicer(object):
@@ -174,6 +184,18 @@ class OrderServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetCustomerDebtById(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def UpdateCustomerDebtById(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_OrderServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -246,6 +268,16 @@ def add_OrderServiceServicer_to_server(servicer, server):
                     servicer.RemoveProductFromCartByProductId,
                     request_deserializer=order__pb2.RemoveProductFromCartByProductIdRequest.FromString,
                     response_serializer=order__pb2.RemoveProductFromCartByProductIdResponse.SerializeToString,
+            ),
+            'GetCustomerDebtById': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetCustomerDebtById,
+                    request_deserializer=order__pb2.GetCustomerDebtByIdRequest.FromString,
+                    response_serializer=order__pb2.GetCustomerDebtByIdResponse.SerializeToString,
+            ),
+            'UpdateCustomerDebtById': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateCustomerDebtById,
+                    request_deserializer=order__pb2.UpdateCustomerDebtByIdRequest.FromString,
+                    response_serializer=order__pb2.UpdateCustomerDebtByIdResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -492,5 +524,39 @@ class OrderService(object):
         return grpc.experimental.unary_unary(request, target, '/order.OrderService/RemoveProductFromCartByProductId',
             order__pb2.RemoveProductFromCartByProductIdRequest.SerializeToString,
             order__pb2.RemoveProductFromCartByProductIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetCustomerDebtById(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/order.OrderService/GetCustomerDebtById',
+            order__pb2.GetCustomerDebtByIdRequest.SerializeToString,
+            order__pb2.GetCustomerDebtByIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def UpdateCustomerDebtById(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/order.OrderService/UpdateCustomerDebtById',
+            order__pb2.UpdateCustomerDebtByIdRequest.SerializeToString,
+            order__pb2.UpdateCustomerDebtByIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
