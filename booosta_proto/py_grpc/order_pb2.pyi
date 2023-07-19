@@ -56,6 +56,24 @@ class OrderItem(_message.Message):
     created_by_id: str
     def __init__(self, product_id: _Optional[str] = ..., order_id: _Optional[str] = ..., quantity: _Optional[int] = ..., discount_selling_price: _Optional[float] = ..., product_cost_price: _Optional[float] = ..., selling_price: _Optional[float] = ..., total_price: _Optional[float] = ..., created_by_id: _Optional[str] = ...) -> None: ...
 
+class Cart(_message.Message):
+    __slots__ = ["id", "product_id", "quantity", "selling_price", "discount_selling_price", "total_price", "created_by_id"]
+    ID_FIELD_NUMBER: _ClassVar[int]
+    PRODUCT_ID_FIELD_NUMBER: _ClassVar[int]
+    QUANTITY_FIELD_NUMBER: _ClassVar[int]
+    SELLING_PRICE_FIELD_NUMBER: _ClassVar[int]
+    DISCOUNT_SELLING_PRICE_FIELD_NUMBER: _ClassVar[int]
+    TOTAL_PRICE_FIELD_NUMBER: _ClassVar[int]
+    CREATED_BY_ID_FIELD_NUMBER: _ClassVar[int]
+    id: str
+    product_id: str
+    quantity: int
+    selling_price: float
+    discount_selling_price: float
+    total_price: float
+    created_by_id: str
+    def __init__(self, id: _Optional[str] = ..., product_id: _Optional[str] = ..., quantity: _Optional[int] = ..., selling_price: _Optional[float] = ..., discount_selling_price: _Optional[float] = ..., total_price: _Optional[float] = ..., created_by_id: _Optional[str] = ...) -> None: ...
+
 class GetOrderByIdRequest(_message.Message):
     __slots__ = ["id"]
     ID_FIELD_NUMBER: _ClassVar[int]
@@ -231,3 +249,15 @@ class UpdateCustomerDebtByIdResponse(_message.Message):
     customer_id: str
     debt: float
     def __init__(self, customer_id: _Optional[str] = ..., debt: _Optional[float] = ...) -> None: ...
+
+class GetCartByProductIdRequest(_message.Message):
+    __slots__ = ["product_id"]
+    PRODUCT_ID_FIELD_NUMBER: _ClassVar[int]
+    product_id: str
+    def __init__(self, product_id: _Optional[str] = ...) -> None: ...
+
+class GetCartByProductIdResponse(_message.Message):
+    __slots__ = ["cart"]
+    CART_FIELD_NUMBER: _ClassVar[int]
+    cart: Cart
+    def __init__(self, cart: _Optional[_Union[Cart, _Mapping]] = ...) -> None: ...

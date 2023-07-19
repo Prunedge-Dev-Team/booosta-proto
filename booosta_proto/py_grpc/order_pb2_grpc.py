@@ -95,6 +95,11 @@ class OrderServiceStub(object):
                 request_serializer=order__pb2.UpdateCustomerDebtByIdRequest.SerializeToString,
                 response_deserializer=order__pb2.UpdateCustomerDebtByIdResponse.FromString,
                 )
+        self.GetCartByProductId = channel.unary_unary(
+                '/order.OrderService/GetCartByProductId',
+                request_serializer=order__pb2.GetCartByProductIdRequest.SerializeToString,
+                response_deserializer=order__pb2.GetCartByProductIdResponse.FromString,
+                )
 
 
 class OrderServiceServicer(object):
@@ -196,6 +201,12 @@ class OrderServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetCartByProductId(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_OrderServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -278,6 +289,11 @@ def add_OrderServiceServicer_to_server(servicer, server):
                     servicer.UpdateCustomerDebtById,
                     request_deserializer=order__pb2.UpdateCustomerDebtByIdRequest.FromString,
                     response_serializer=order__pb2.UpdateCustomerDebtByIdResponse.SerializeToString,
+            ),
+            'GetCartByProductId': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetCartByProductId,
+                    request_deserializer=order__pb2.GetCartByProductIdRequest.FromString,
+                    response_serializer=order__pb2.GetCartByProductIdResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -558,5 +574,22 @@ class OrderService(object):
         return grpc.experimental.unary_unary(request, target, '/order.OrderService/UpdateCustomerDebtById',
             order__pb2.UpdateCustomerDebtByIdRequest.SerializeToString,
             order__pb2.UpdateCustomerDebtByIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetCartByProductId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/order.OrderService/GetCartByProductId',
+            order__pb2.GetCartByProductIdRequest.SerializeToString,
+            order__pb2.GetCartByProductIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

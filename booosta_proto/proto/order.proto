@@ -19,6 +19,7 @@ service OrderService {
     rpc RemoveProductFromCartByProductId(RemoveProductFromCartByProductIdRequest) returns (RemoveProductFromCartByProductIdResponse) {}
     rpc GetCustomerDebtById(GetCustomerDebtByIdRequest) returns (GetCustomerDebtByIdResponse) {}
     rpc UpdateCustomerDebtById(UpdateCustomerDebtByIdRequest) returns (UpdateCustomerDebtByIdResponse) {}
+    rpc GetCartByProductId(GetCartByProductIdRequest) returns (GetCartByProductIdResponse) {}
 }
 
 message Order {
@@ -46,6 +47,16 @@ message OrderItem {
     float selling_price = 6;
     float total_price = 7;
     string created_by_id = 8;
+}
+
+message Cart {
+    string id = 1;
+    string product_id = 2;
+    int64 quantity = 3;
+    float selling_price = 4;
+    float discount_selling_price = 5;
+    float total_price = 6;
+    string created_by_id = 7;
 }
 
 message GetOrderByIdRequest {
@@ -161,4 +172,12 @@ message UpdateCustomerDebtByIdRequest {
 message UpdateCustomerDebtByIdResponse {
     string customer_id = 1;
     float debt = 2;
+}
+
+message GetCartByProductIdRequest {
+    string product_id = 1;
+}
+
+message GetCartByProductIdResponse {
+    Cart cart = 1;
 }
