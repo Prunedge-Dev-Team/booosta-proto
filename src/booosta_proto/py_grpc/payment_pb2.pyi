@@ -62,6 +62,18 @@ class FetchCustomerDVAResponse(_message.Message):
     status: bool
     def __init__(self, bank_name: _Optional[str] = ..., bank_id: _Optional[str] = ..., bank_slug: _Optional[str] = ..., id: _Optional[str] = ..., account_name: _Optional[str] = ..., account_number: _Optional[str] = ..., currency: _Optional[str] = ..., active: bool = ..., assigned: bool = ..., status: bool = ...) -> None: ...
 
+class GetWalletBalanceByUserIdRequest(_message.Message):
+    __slots__ = ["user_id"]
+    USER_ID_FIELD_NUMBER: _ClassVar[int]
+    user_id: str
+    def __init__(self, user_id: _Optional[str] = ...) -> None: ...
+
+class GetWalletBalanceByUserIdResponse(_message.Message):
+    __slots__ = ["balance"]
+    BALANCE_FIELD_NUMBER: _ClassVar[int]
+    balance: float
+    def __init__(self, balance: _Optional[float] = ...) -> None: ...
+
 class RequeryVDARequest(_message.Message):
     __slots__ = ["account_number", "provider_slug", "txn_date"]
     ACCOUNT_NUMBER_FIELD_NUMBER: _ClassVar[int]
