@@ -141,11 +141,3 @@ class VerifyBVNResponse(_message.Message):
     middle_name: bool
     status: bool
     def __init__(self, status: bool = ..., message: _Optional[str] = ..., bvn: _Optional[str] = ..., is_blacklisted: bool = ..., account_number: bool = ..., first_name: bool = ..., middle_name: bool = ..., last_name: bool = ...) -> None: ...
-
-class Wallet(_message.Message):
-    __slots__ = ["balance", "user_id"]
-    BALANCE_FIELD_NUMBER: _ClassVar[int]
-    USER_ID_FIELD_NUMBER: _ClassVar[int]
-    balance: float
-    user_id: str
-    def __init__(self, user_id: _Optional[str] = ..., balance: _Optional[float] = ...) -> None: ...

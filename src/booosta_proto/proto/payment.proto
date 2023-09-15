@@ -26,11 +26,6 @@ message CreateDVAResponse {
     string message = 2;
 }
 
-message Wallet{
-    string user_id = 1;
-    float balance = 2;
-}
-
 message GetWalletBalanceByUserIdRequest{
     string user_id = 1;
 }
