@@ -39,6 +39,11 @@ class PaymentServiceStub(object):
                 request_serializer=payment__pb2.RequeryVDARequest.SerializeToString,
                 response_deserializer=payment__pb2.CreateDVAResponse.FromString,
                 )
+        self.GetWalletBalanceByUserId = channel.unary_unary(
+                '/payment.PaymentService/GetWalletBalanceByUserId',
+                request_serializer=payment__pb2.GetWalletBalanceByUserIdRequest.SerializeToString,
+                response_deserializer=payment__pb2.GetWalletBalanceByUserIdResponse.FromString,
+                )
 
 
 class PaymentServiceServicer(object):
@@ -74,6 +79,12 @@ class PaymentServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetWalletBalanceByUserId(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_PaymentServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -101,6 +112,11 @@ def add_PaymentServiceServicer_to_server(servicer, server):
                     servicer.RequeryVDA,
                     request_deserializer=payment__pb2.RequeryVDARequest.FromString,
                     response_serializer=payment__pb2.CreateDVAResponse.SerializeToString,
+            ),
+            'GetWalletBalanceByUserId': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetWalletBalanceByUserId,
+                    request_deserializer=payment__pb2.GetWalletBalanceByUserIdRequest.FromString,
+                    response_serializer=payment__pb2.GetWalletBalanceByUserIdResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -194,5 +210,22 @@ class PaymentService(object):
         return grpc.experimental.unary_unary(request, target, '/payment.PaymentService/RequeryVDA',
             payment__pb2.RequeryVDARequest.SerializeToString,
             payment__pb2.CreateDVAResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetWalletBalanceByUserId(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/payment.PaymentService/GetWalletBalanceByUserId',
+            payment__pb2.GetWalletBalanceByUserIdRequest.SerializeToString,
+            payment__pb2.GetWalletBalanceByUserIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
