@@ -7,6 +7,7 @@ service PaymentService {
     rpc VerifyBVN(VerifyBVNRequest) returns (VerifyBVNResponse) {}
     rpc FetchCustomerDVA(FetchCustomerDVARequest) returns (FetchCustomerDVAResponse) {}
     rpc RequeryVDA(RequeryVDARequest) returns (CreateDVAResponse) {}
+    rpc GetWalletBalanceByUserId(GetWalletBalanceByUserIdRequest) returns (GetWalletBalanceByUserIdResponse) {}
 }
 
 message CreateDVARequest {
@@ -23,6 +24,19 @@ message CreateDVARequest {
 message CreateDVAResponse { 
     bool status = 1;
     string message = 2;
+}
+
+message Wallet{
+    string user_id = 1;
+    float balance = 2;
+}
+
+message GetWalletBalanceByUserIdRequest{
+    string user_id = 1;
+}
+
+message GetWalletBalanceByUserIdResponse{
+    float balance = 1;
 }
 
 message ResolveAccountNumberRequest {
